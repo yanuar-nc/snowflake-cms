@@ -1,0 +1,9 @@
+.checkbox input[type="checkbox"] {
+	margin-left: 0;
+}
+.form-horizontal .checkbox{
+	/*margin-left: 20px;*/
+}
+.headerwrapper .header-left .logo {
+	margin-top: 0;
+}
