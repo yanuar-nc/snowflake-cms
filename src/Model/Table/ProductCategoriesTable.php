@@ -72,9 +72,7 @@ class ProductCategoriesTable extends Table
             ->allowEmpty('rght');
 
         $validator
-            ->add('row_status', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('row_status', 'create')
-            ->notEmpty('row_status');
+            ->add('row_status', 'valid', ['rule' => 'numeric']);
 
         return $validator;
     }

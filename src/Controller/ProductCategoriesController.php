@@ -65,13 +65,17 @@ class ProductCategoriesController extends AppController
     {
         $productCategory = $this->ProductCategories->newEntity();
         if ($this->request->is('post')) {
+
+            $this->request->data[ 'row_status' ] = 1;
             $productCategory = $this->ProductCategories->patchEntity($productCategory, $this->request->data);
+
             if ($this->ProductCategories->save($productCategory)) {
                 $this->Flash->success(__('The product category has been saved.'));
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The product category could not be saved. Please, try again.'));
             }
+
         }
         $parentProductCategories = $this->ProductCategories->ParentProductCategories->find('list', ['limit' => 200]);
         $this->set(compact('productCategory', 'parentProductCategories'));
