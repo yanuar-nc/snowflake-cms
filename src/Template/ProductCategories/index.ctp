@@ -71,9 +71,9 @@
                             <li class="divider"></li>
                             <li>
                                 <?= $this->Form->postLink(
-                                        '<i class="fa fa-trash-o"></i> &nbsp; ' . __( BTN_DELETE ),
+                                        __( BTN_DELETE ),
                                         ['action' => 'delete', $id],
-                                        ['confirm' => __( CONFIRM_DELETE ), 'class="btn btn-sm btn-white"', 'escape' => false ]
+                                        ['confirm' => __( CONFIRM_DELETE ) ]
                                     )
                                 ?>
                             </li>

@@ -80,7 +80,7 @@ class Connection implements ConnectionInterface
     /**
      * Logger object instance.
      *
-     * @var QueryLogger
+     * @var \Cake\Database\Log\QueryLogger
      */
     protected $_logger = null;
 
@@ -609,8 +609,8 @@ class Connection implements ConnectionInterface
      * Quotes value to be used safely in database query.
      *
      * @param mixed $value The value to quote.
-     * @param string $type Type to be used for determining kind of quoting to perform
-     * @return mixed quoted value
+     * @param string|null $type Type to be used for determining kind of quoting to perform
+     * @return string Quoted value
      */
     public function quote($value, $type = null)
     {

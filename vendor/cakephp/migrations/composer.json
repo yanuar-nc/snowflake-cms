@@ -19,7 +19,7 @@
     },
     "require": {
         "php": ">=5.4",
-        "robmorgan/phinx": "dev-master",
+        "robmorgan/phinx": "0.5.1",
         "cakephp/cakephp": "~3.1"
     },
     "require-dev": {
@@ -34,7 +34,8 @@
     "autoload-dev": {
         "psr-4": {
             "Cake\\Test\\": "./vendor/cakephp/cakephp/tests",
-            "Migrations\\Test\\": "tests"
+            "Migrations\\Test\\": "tests",
+            "TestBlog\\": "tests/test_app/Plugin/TestBlog/src"
         }
     },
     "suggest": {

@@ -25,7 +25,17 @@ class UploadBehavior extends Behavior
      */
     public function initialize(array $config)
     {
-        $this->config(Hash::normalize($config));
+        $configs = [];
+        foreach ($config as $field => $settings) {
+            if (is_int($field)) {
+                $configs[$settings] = [];
+            } else {
+                $configs[$field] = $settings;
+            }
+        }
+
+        $this->_config = [];
+        $this->config($configs);
 
         Type::map('upload.file', 'Josegonzalez\Upload\Database\Type\FileType');
         $schema = $this->_table->schema();
@@ -47,7 +57,7 @@ class UploadBehavior extends Behavior
     {
         $validator = $this->_table->validator();
         $dataArray = $data->getArrayCopy();
-        foreach ($this->config() as $field => $settings) {
+        foreach (array_keys($this->config()) as $field) {
             if (!$validator->isEmptyAllowed($field, false)) {
                 continue;
             }
@@ -76,7 +86,10 @@ class UploadBehavior extends Behavior
 
             $data = $entity->get($field);
             $path = $this->getPathProcessor($entity, $data, $field, $settings);
-            $files = $this->constructFiles($entity, $data, $field, $settings, $path->basepath());
+            $basepath = $path->basepath();
+            $filename = $path->filename();
+            $data['name'] = $filename;
+            $files = $this->constructFiles($entity, $data, $field, $settings, $basepath);
 
             $writer = $this->getWriter($entity, $data, $field, $settings);
             $success = $writer->write($files);
@@ -85,10 +98,37 @@ class UploadBehavior extends Behavior
                 return false;
             }
 
-            $entity->set($field, $path->filename());
-            $entity->set(Hash::get($settings, 'fields.dir', 'dir'), $path->basepath());
+            $entity->set($field, $filename);
+            $entity->set(Hash::get($settings, 'fields.dir', 'dir'), $basepath);
             $entity->set(Hash::get($settings, 'fields.size', 'size'), $data['size']);
             $entity->set(Hash::get($settings, 'fields.type', 'type'), $data['type']);
+        }
+    }
+
+    /**
+     * Deletes the files after the entity is deleted
+     *
+     * @param \Cake\Event\Event $event The afterDelete event that was fired
+     * @param \Cake\ORM\Entity $entity The entity that was deleted
+     * @param \ArrayObject $options the options passed to the delete method
+     * @return void|false
+     */
+    public function afterDelete(Event $event, Entity $entity, ArrayObject $options)
+    {
+        foreach ($this->config() as $field => $settings) {
+            if (Hash::get($settings, 'keepFilesOnDelete', true)) {
+                continue;
+            }
+
+            $dirField = Hash::get($settings, 'fields.dir', 'dir');
+
+            $file = [$entity->{$dirField} . $entity->{$field}];
+            $writer = $this->getWriter($entity, [], $field, $settings);
+            $success = $writer->delete($file);
+
+            if ((new Collection($success))->contains(false)) {
+                return false;
+            }
         }
     }
 
@@ -165,17 +205,23 @@ class UploadBehavior extends Behavior
     {
         $default = 'Josegonzalez\Upload\File\Transformer\DefaultTransformer';
         $transformerClass = Hash::get($settings, 'transformer', $default);
-        if (!is_subclass_of($transformerClass, 'Josegonzalez\Upload\File\Transformer\TransformerInterface')) {
+        $results = [];
+        if (is_subclass_of($transformerClass, 'Josegonzalez\Upload\File\Transformer\TransformerInterface')) {
+            $transformer = new $transformerClass($this->_table, $entity, $data, $field, $settings);
+            $results = $transformer->transform();
+            foreach ($results as $key => $value) {
+                $results[$key] = $basepath . '/' . $value;
+            }
+        } elseif (is_callable($transformerClass)) {
+            $results = $transformerClass($this->_table, $entity, $data, $field, $settings);
+            foreach ($results as $key => $value) {
+                $results[$key] = $basepath . '/' . $value;
+            }
+        } else {
             throw new UnexpectedValueException(sprintf(
                 "'transformer' not set to instance of TransformerInterface: %s",
                 $transformerClass
             ));
-        }
-
-        $transformer = new $transformerClass($this->_table, $entity, $data, $field, $settings);
-        $results = $transformer->transform();
-        foreach ($results as $key => $value) {
-            $results[$key] = $basepath . '/' . $value;
         }
         return $results;
     }

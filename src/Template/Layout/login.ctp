@@ -38,7 +38,7 @@
                     echo $this->Flash->render(); 
                     echo $this->Flash->render('auth'); 
 
-                    echo $this->Form->create( $var_model, [ 'action' => 'login', 'class' => 'form-horizontal' ] ); 
+                    echo $this->Form->create( $var_model, [ 'url' => '/users/login', 'class' => 'form-horizontal' ] ); 
                     $this->Form->templates( $form_templates[ 'simpleForm' ] );
                     ?>  
 

@@ -12,7 +12,7 @@
 namespace Migrations;
 
 use Cake\Collection\Collection;
-use Phinx\Db\Adapter\SQLiteAdapter;
+use Cake\ORM\TableRegistry;
 use Phinx\Db\Table as BaseTable;
 
 class Table extends BaseTable
@@ -67,6 +67,19 @@ class Table extends BaseTable
         }
 
         parent::create();
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * After a table update, the TableRegistry should be cleared in order to prevent issues with
+     * table schema stored in Table objects having columns that might have been renamed or removed during
+     * the update process.
+     */
+    public function update()
+    {
+        parent::update();
+        TableRegistry::clear();
     }
 
     /**

@@ -32,7 +32,7 @@ class ProductCategoriesTable extends Table
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
-        $this->addBehavior('Tree');
+        $this->addBehavior('Tree', [ 'level' => 'level' ] );
 
         $this->belongsTo('ParentProductCategories', [
             'className' => 'ProductCategories',

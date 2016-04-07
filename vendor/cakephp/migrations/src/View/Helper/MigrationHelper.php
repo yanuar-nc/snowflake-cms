@@ -31,6 +31,12 @@ class MigrationHelper extends Helper
      */
     protected $schemas = [];
 
+    /**
+     * Stores the ``$this->table()`` statements issued while baking.
+     * It helps prevent duplicate calls in case of complex conditions
+     *
+     * @var array
+     */
     public $tableStatements = [];
 
     /**
@@ -56,11 +62,11 @@ class MigrationHelper extends Helper
      */
     public function tableMethod($action)
     {
-        if ($action == 'drop_table') {
+        if ($action === 'drop_table') {
             return 'drop';
         }
 
-        if ($action == 'create_table') {
+        if ($action === 'create_table') {
             return 'create';
         }
 
@@ -75,7 +81,7 @@ class MigrationHelper extends Helper
      */
     public function indexMethod($action)
     {
-        if ($action == 'drop_field') {
+        if ($action === 'drop_field') {
             return 'removeIndex';
         }
 
@@ -90,7 +96,7 @@ class MigrationHelper extends Helper
      */
     public function columnMethod($action)
     {
-        if ($action == 'drop_field') {
+        if ($action === 'drop_field') {
             return 'removeColumn';
         }
 
@@ -212,6 +218,31 @@ class MigrationHelper extends Helper
     }
 
     /**
+     * Returns whether the $tables list given as arguments contains primary keys
+     * unsigned.
+     *
+     * @param array $tables List of tables to check
+     * @return bool
+     */
+    public function hasUnsignedPrimaryKey($tables)
+    {
+        foreach ($tables as $table) {
+            $collection = $this->config('collection');
+            $tableSchema = $collection->describe($table);
+            $tablePrimaryKeys = $tableSchema->primaryKey();
+
+            foreach ($tablePrimaryKeys as $primaryKey) {
+                $column = $tableSchema->column($primaryKey);
+                if (isset($column['unsigned']) && $column['unsigned'] === true) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Returns the primary key columns name for a given table
      *
      * @param string $table Name of the table ot retrieve primary key for
@@ -261,7 +292,7 @@ class MigrationHelper extends Helper
         }
 
         if (is_numeric($value) || ctype_digit($value)) {
-            return (int)$value;
+            return (float)$value;
         }
 
         return sprintf("'%s'", addslashes($value));

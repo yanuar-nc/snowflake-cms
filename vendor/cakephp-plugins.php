@@ -7,6 +7,8 @@ return [
         'Josegonzalez' => $baseDir . '/plugins/Josegonzalez/',
         'Josegonzalez/Upload' => $baseDir . '/vendor/josegonzalez/cakephp-upload/',
         'Migrations' => $baseDir . '/vendor/cakephp/migrations/',
+        'Proffer' => $baseDir . '/vendor/davidyell/proffer/',
+        'Utils' => $baseDir . '/vendor/cakemanager/cakephp-utils/',
         'Xety/Cake3Upload' => $baseDir . '/vendor/xety/cake3-upload/'
     ]
 ];

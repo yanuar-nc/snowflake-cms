@@ -8,12 +8,12 @@
         echo $this->Element( 'Toolbar/form_add' );
         
         // START FORM
-        echo $this->Form->create( $productCategory, [ 'class' => 'form-horizontal' ] );      
+        echo $this->Form->create( $data, [ 'class' => 'form-horizontal' ] );      
         
         $this->Form->templates($form_templates['longForm']);            
         
         echo $this->Form->input( 'name' );
-        echo $this->Form->input( 'parent_id', ['options' => $parentProductCategories, 'empty' => true]);
+        echo $this->Form->input( 'parent_id', ['options' => $parentProductCategories, 'empty' => '--- Choose Item ---']);
         ?>
 
     </div>

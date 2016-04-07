@@ -206,10 +206,14 @@ DispatcherFactory::add('ControllerFactory');
 Type::build('date')->useLocaleParser();
 Type::build('datetime')->useLocaleParser();
 
+Configure::load( 'app_form', 'default' );
+
 /*
  * EXTENSIONS
  */
-Plugin::load( 'Josegonzalez/Upload' );
-// Plugin::load( 'Upload');
 
-Configure::load( 'app_form', 'default' );
+// Plugin::load('Josegonzalez/Upload');
+
+// Plugin::load('Utils');
+
+Plugin::load('Proffer');

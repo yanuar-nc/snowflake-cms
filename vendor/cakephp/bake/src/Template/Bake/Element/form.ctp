@@ -18,6 +18,12 @@ $fields = collection($fields)
     ->filter(function($field) use ($schema) {
         return $schema->columnType($field) !== 'binary';
     });
+
+if (isset($modelObject) && $modelObject->behaviors()->has('Tree')) {
+    $fields = $fields->reject(function ($field) {
+        return $field === 'lft' || $field === 'rght';
+    });
+}
 %>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
@@ -37,8 +43,8 @@ $fields = collection($fields)
             foreach ($data as $alias => $details) {
                 if ($details['controller'] !== $this->name && !in_array($details['controller'], $done)) {
 %>
-        <li><?= $this->Html->link(__('List <%= $this->_pluralHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'index']) %></li>
-        <li><?= $this->Html->link(__('New <%= $this->_singularHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add']) %></li>
+        <li><?= $this->Html->link(__('List <%= $this->_pluralHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New <%= $this->_singularHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add']) ?></li>
 <%
                     $done[] = $details['controller'];
                 }
@@ -72,7 +78,7 @@ $fields = collection($fields)
             }
             if (!in_array($field, ['created', 'modified', 'updated'])) {
                 $fieldData = $schema->column($field);
-                if (($fieldData['type'] === 'date') && (!empty($fieldData['null']))) {
+                if (in_array($fieldData['type'], ['date', 'datetime', 'time']) && (!empty($fieldData['null']))) {
 %>
             echo $this->Form->input('<%= $field %>', ['empty' => true]);
 <%

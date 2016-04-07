@@ -205,206 +205,6 @@
         ]
     },
     {
-        "name": "ircmaxell/password-compat",
-        "version": "v1.0.4",
-        "version_normalized": "1.0.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/ircmaxell/password_compat.git",
-            "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/ircmaxell/password_compat/zipball/5c5cde8822a69545767f7c7f3058cb15ff84614c",
-            "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c",
-            "shasum": ""
-        },
-        "require-dev": {
-            "phpunit/phpunit": "4.*"
-        },
-        "time": "2014-11-20 16:49:30",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "lib/password.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Anthony Ferrara",
-                "email": "ircmaxell@php.net",
-                "homepage": "http://blog.ircmaxell.com"
-            }
-        ],
-        "description": "A compatibility library for the proposed simplified password hashing algorithm: https://wiki.php.net/rfc/password_hash",
-        "homepage": "https://github.com/ircmaxell/password_compat",
-        "keywords": [
-            "hashing",
-            "password"
-        ]
-    },
-    {
-        "name": "nesbot/carbon",
-        "version": "1.13.0",
-        "version_normalized": "1.13.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/briannesbitt/Carbon.git",
-            "reference": "5cb6e71055f7b0b57956b73d324cc4de31278f42"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/5cb6e71055f7b0b57956b73d324cc4de31278f42",
-            "reference": "5cb6e71055f7b0b57956b73d324cc4de31278f42",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0"
-        },
-        "time": "2014-09-26 02:52:02",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Carbon": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Brian Nesbitt",
-                "email": "brian@nesbot.com",
-                "homepage": "http://nesbot.com"
-            }
-        ],
-        "description": "A simple API extension for DateTime.",
-        "homepage": "https://github.com/briannesbitt/Carbon",
-        "keywords": [
-            "date",
-            "datetime",
-            "time"
-        ]
-    },
-    {
-        "name": "mobiledetect/mobiledetectlib",
-        "version": "2.8.17",
-        "version_normalized": "2.8.17.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/serbanghita/Mobile-Detect.git",
-            "reference": "b87da5f63a76e9615a0c74fcf168657b1ea7e41d"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/serbanghita/Mobile-Detect/zipball/b87da5f63a76e9615a0c74fcf168657b1ea7e41d",
-            "reference": "b87da5f63a76e9615a0c74fcf168657b1ea7e41d",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.0.0"
-        },
-        "require-dev": {
-            "codeclimate/php-test-reporter": "dev-master",
-            "johnkary/phpunit-speedtrap": "~1.0@dev",
-            "phpunit/phpunit": "*"
-        },
-        "time": "2015-09-17 14:45:21",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "Mobile_Detect.php"
-            ],
-            "psr-0": {
-                "Detection": "namespaced/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Serban Ghita",
-                "email": "serbanghita@gmail.com",
-                "homepage": "http://mobiledetect.net",
-                "role": "Developer"
-            }
-        ],
-        "description": "Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.",
-        "homepage": "https://github.com/serbanghita/Mobile-Detect",
-        "keywords": [
-            "detect mobile devices",
-            "mobile",
-            "mobile detect",
-            "mobile detector",
-            "php mobile detect"
-        ]
-    },
-    {
-        "name": "cakephp/migrations",
-        "version": "1.4",
-        "version_normalized": "1.4.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/cakephp/migrations.git",
-            "reference": "8fd5d9fddde441a7324b5f5198172215f8e804fc"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/cakephp/migrations/zipball/8fd5d9fddde441a7324b5f5198172215f8e804fc",
-            "reference": "8fd5d9fddde441a7324b5f5198172215f8e804fc",
-            "shasum": ""
-        },
-        "require": {
-            "cakephp/cakephp": "~3.1",
-            "php": ">=5.4",
-            "robmorgan/phinx": "dev-master"
-        },
-        "require-dev": {
-            "cakephp/bake": "@stable",
-            "phpunit/phpunit": "*"
-        },
-        "suggest": {
-            "cakephp/bake": "Required if you want to generate migrations."
-        },
-        "time": "2015-10-16 20:29:10",
-        "type": "cakephp-plugin",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Migrations\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "CakePHP Community",
-                "homepage": "https://github.com/cakephp/migrations/graphs/contributors"
-            }
-        ],
-        "description": "Database Migration plugin for CakePHP 3.0 based on Phinx",
-        "homepage": "https://github.com/cakephp/migrations",
-        "keywords": [
-            "cakephp",
-            "migrations"
-        ]
-    },
-    {
         "name": "jakub-onderka/php-console-color",
         "version": "0.1",
         "version_normalized": "0.1.0.0",
@@ -531,53 +331,6 @@
         "description": "implementation of xdg base directory specification for php"
     },
     {
-        "name": "nikic/php-parser",
-        "version": "v1.4.1",
-        "version_normalized": "1.4.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/nikic/PHP-Parser.git",
-            "reference": "f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51",
-            "reference": "f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51",
-            "shasum": ""
-        },
-        "require": {
-            "ext-tokenizer": "*",
-            "php": ">=5.3"
-        },
-        "time": "2015-09-19 14:15:08",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.4-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "lib/bootstrap.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Nikita Popov"
-            }
-        ],
-        "description": "A PHP parser written in PHP",
-        "keywords": [
-            "parser",
-            "php"
-        ]
-    },
-    {
         "name": "jdorn/sql-formatter",
         "version": "v1.2.17",
         "version_normalized": "1.2.17.0",
@@ -630,31 +383,766 @@
         ]
     },
     {
-        "name": "symfony/var-dumper",
-        "version": "v2.7.7",
-        "version_normalized": "2.7.7.0",
+        "name": "cakemanager/cakephp-utils",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/symfony/var-dumper.git",
-            "reference": "72bcb27411780eaee9469729aace73c0d46fb2b8"
+            "url": "https://github.com/cakemanager/cakephp-utils.git",
+            "reference": "e9ca228ccfe3bb1fe756a99d408838500e1c8002"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/72bcb27411780eaee9469729aace73c0d46fb2b8",
-            "reference": "72bcb27411780eaee9469729aace73c0d46fb2b8",
+            "url": "https://api.github.com/repos/cakemanager/cakephp-utils/zipball/e9ca228ccfe3bb1fe756a99d408838500e1c8002",
+            "reference": "e9ca228ccfe3bb1fe756a99d408838500e1c8002",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.9"
+            "cakephp/cakephp": "~3.0",
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "*"
+        },
+        "time": "2016-01-07 12:58:27",
+        "type": "cakephp-plugin",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Utils\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bob Mulder",
+                "email": "bobmulder@outlook.com"
+            }
+        ],
+        "description": "Plugin for CakePHP 3.x with useful components and behaviors"
+    },
+    {
+        "name": "mobiledetect/mobiledetectlib",
+        "version": "2.8.20",
+        "version_normalized": "2.8.20.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/serbanghita/Mobile-Detect.git",
+            "reference": "d772569880e7becaec564274a3b93501b3fde700"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/serbanghita/Mobile-Detect/zipball/d772569880e7becaec564274a3b93501b3fde700",
+            "reference": "d772569880e7becaec564274a3b93501b3fde700",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.0.0"
+        },
+        "require-dev": {
+            "codeclimate/php-test-reporter": "dev-master",
+            "johnkary/phpunit-speedtrap": "~1.0@dev",
+            "phpunit/phpunit": "*"
+        },
+        "time": "2016-03-24 09:06:37",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "Mobile_Detect.php"
+            ],
+            "psr-0": {
+                "Detection": "namespaced/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Serban Ghita",
+                "email": "serbanghita@gmail.com",
+                "homepage": "http://mobiledetect.net",
+                "role": "Developer"
+            }
+        ],
+        "description": "Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.",
+        "homepage": "https://github.com/serbanghita/Mobile-Detect",
+        "keywords": [
+            "detect mobile devices",
+            "mobile",
+            "mobile detect",
+            "mobile detector",
+            "php mobile detect"
+        ]
+    },
+    {
+        "name": "cakephp/chronos",
+        "version": "0.4.8",
+        "version_normalized": "0.4.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cakephp/chronos.git",
+            "reference": "aef0ba4ffcd1d962dc66b4d51b0d111db089cfcf"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cakephp/chronos/zipball/aef0ba4ffcd1d962dc66b4d51b0d111db089cfcf",
+            "reference": "aef0ba4ffcd1d962dc66b4d51b0d111db089cfcf",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9"
+        },
+        "require-dev": {
+            "athletic/athletic": "~0.1",
+            "cakephp/cakephp-codesniffer": "dev-master",
+            "phpunit/phpunit": "*"
+        },
+        "time": "2016-03-10 01:50:25",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Cake\\Chronos\\": "src"
+            },
+            "files": [
+                "src/carbon_compat.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Brian Nesbitt",
+                "email": "brian@nesbot.com",
+                "homepage": "http://nesbot.com"
+            },
+            {
+                "name": "The CakePHP Team",
+                "homepage": "http://cakephp.org"
+            }
+        ],
+        "description": "A simple API extension for DateTime.",
+        "homepage": "http://cakephp.org",
+        "keywords": [
+            "date",
+            "datetime",
+            "time"
+        ]
+    },
+    {
+        "name": "cakephp/cakephp",
+        "version": "3.2.6",
+        "version_normalized": "3.2.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cakephp/cakephp.git",
+            "reference": "1894529ac1e726c2a970e3dcf919b8878e463ff7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cakephp/cakephp/zipball/1894529ac1e726c2a970e3dcf919b8878e463ff7",
+            "reference": "1894529ac1e726c2a970e3dcf919b8878e463ff7",
+            "shasum": ""
+        },
+        "require": {
+            "aura/intl": "1.1.*",
+            "cakephp/chronos": "*",
+            "ext-intl": "*",
+            "ext-mbstring": "*",
+            "php": ">=5.5.9",
+            "psr/log": "1.0"
+        },
+        "replace": {
+            "cakephp/cache": "self.version",
+            "cakephp/collection": "self.version",
+            "cakephp/core": "self.version",
+            "cakephp/database": "self.version",
+            "cakephp/datasource": "self.version",
+            "cakephp/event": "self.version",
+            "cakephp/filesystem": "self.version",
+            "cakephp/i18n": "self.version",
+            "cakephp/log": "self.version",
+            "cakephp/orm": "self.version",
+            "cakephp/utility": "self.version",
+            "cakephp/validation": "self.version"
+        },
+        "require-dev": {
+            "cakephp/cakephp-codesniffer": "dev-master",
+            "phpunit/phpunit": "*"
+        },
+        "suggest": {
+            "ext-openssl": "To use Security::encrypt() or have secure CSRF token generation."
+        },
+        "time": "2016-03-29 02:49:23",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Cake\\": "src"
+            },
+            "files": [
+                "src/Core/functions.php",
+                "src/Collection/functions.php",
+                "src/I18n/functions.php",
+                "src/Utility/bootstrap.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "CakePHP Community",
+                "homepage": "https://github.com/cakephp/cakephp/graphs/contributors"
+            }
+        ],
+        "description": "The CakePHP framework",
+        "homepage": "http://cakephp.org",
+        "keywords": [
+            "framework"
+        ]
+    },
+    {
+        "name": "symfony/yaml",
+        "version": "v3.0.4",
+        "version_normalized": "3.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/yaml.git",
+            "reference": "0047c8366744a16de7516622c5b7355336afae96"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/yaml/zipball/0047c8366744a16de7516622c5b7355336afae96",
+            "reference": "0047c8366744a16de7516622c5b7355336afae96",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9"
+        },
+        "time": "2016-03-04 07:55:57",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Yaml\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Yaml Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/filesystem",
+        "version": "v3.0.4",
+        "version_normalized": "3.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/filesystem.git",
+            "reference": "f82499a459dcade2ea56df94cc58b19c8bde3d20"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/filesystem/zipball/f82499a459dcade2ea56df94cc58b19c8bde3d20",
+            "reference": "f82499a459dcade2ea56df94cc58b19c8bde3d20",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9"
+        },
+        "time": "2016-03-27 10:24:39",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Filesystem\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Filesystem Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/config",
+        "version": "v3.0.4",
+        "version_normalized": "3.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/config.git",
+            "reference": "980ee40c28f00acff8906c11b778aab5f0db74c2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/config/zipball/980ee40c28f00acff8906c11b778aab5f0db74c2",
+            "reference": "980ee40c28f00acff8906c11b778aab5f0db74c2",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9",
+            "symfony/filesystem": "~2.8|~3.0"
+        },
+        "suggest": {
+            "symfony/yaml": "To use the yaml reference dumper"
+        },
+        "time": "2016-03-04 07:55:57",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Config\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Config Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/polyfill-mbstring",
+        "version": "v1.1.1",
+        "version_normalized": "1.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-mbstring.git",
+            "reference": "1289d16209491b584839022f29257ad859b8532d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/1289d16209491b584839022f29257ad859b8532d",
+            "reference": "1289d16209491b584839022f29257ad859b8532d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "suggest": {
+            "ext-mbstring": "For best performance"
+        },
+        "time": "2016-01-20 09:13:37",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Mbstring\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill for the Mbstring extension",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "mbstring",
+            "polyfill",
+            "portable",
+            "shim"
+        ]
+    },
+    {
+        "name": "symfony/console",
+        "version": "v3.0.4",
+        "version_normalized": "3.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/console.git",
+            "reference": "6b1175135bc2a74c08a28d89761272de8beed8cd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/console/zipball/6b1175135bc2a74c08a28d89761272de8beed8cd",
+            "reference": "6b1175135bc2a74c08a28d89761272de8beed8cd",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9",
+            "symfony/polyfill-mbstring": "~1.0"
+        },
+        "require-dev": {
+            "psr/log": "~1.0",
+            "symfony/event-dispatcher": "~2.8|~3.0",
+            "symfony/process": "~2.8|~3.0"
+        },
+        "suggest": {
+            "psr/log": "For using the console logger",
+            "symfony/event-dispatcher": "",
+            "symfony/process": ""
+        },
+        "time": "2016-03-16 17:00:50",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Console\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Console Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "robmorgan/phinx",
+        "version": "v0.5.1",
+        "version_normalized": "0.5.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/robmorgan/phinx.git",
+            "reference": "9e41ae609670645546e08e3907a68b3b8fb60f31"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/robmorgan/phinx/zipball/9e41ae609670645546e08e3907a68b3b8fb60f31",
+            "reference": "9e41ae609670645546e08e3907a68b3b8fb60f31",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4",
+            "symfony/config": "~2.8|~3.0",
+            "symfony/console": "~2.8|~3.0",
+            "symfony/yaml": "~2.8|~3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^3.7|^4.0|^5.0"
+        },
+        "time": "2015-12-30 21:16:52",
+        "bin": [
+            "bin/phinx"
+        ],
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Phinx\\": "src/Phinx"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Rob Morgan",
+                "email": "robbym@gmail.com",
+                "homepage": "http://robmorgan.id.au",
+                "role": "Lead Developer"
+            },
+            {
+                "name": "Woody Gilk",
+                "email": "woody.gilk@gmail.com",
+                "homepage": "http://shadowhand.me",
+                "role": "Developer"
+            }
+        ],
+        "description": "Phinx makes it ridiculously easy to manage the database migrations for your PHP app.",
+        "homepage": "https://phinx.org",
+        "keywords": [
+            "database",
+            "database migrations",
+            "db",
+            "migrations",
+            "phinx"
+        ]
+    },
+    {
+        "name": "cakephp/migrations",
+        "version": "1.5.7",
+        "version_normalized": "1.5.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cakephp/migrations.git",
+            "reference": "379b7d531e06d7c972ae9161ba49615119ea3057"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cakephp/migrations/zipball/379b7d531e06d7c972ae9161ba49615119ea3057",
+            "reference": "379b7d531e06d7c972ae9161ba49615119ea3057",
+            "shasum": ""
+        },
+        "require": {
+            "cakephp/cakephp": "~3.1",
+            "php": ">=5.4",
+            "robmorgan/phinx": "0.5.1"
+        },
+        "require-dev": {
+            "cakephp/bake": "@stable",
+            "phpunit/phpunit": "*"
+        },
+        "suggest": {
+            "cakephp/bake": "Required if you want to generate migrations."
+        },
+        "time": "2016-03-02 07:47:34",
+        "type": "cakephp-plugin",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Migrations\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "CakePHP Community",
+                "homepage": "https://github.com/cakephp/migrations/graphs/contributors"
+            }
+        ],
+        "description": "Database Migration plugin for CakePHP 3.0 based on Phinx",
+        "homepage": "https://github.com/cakephp/migrations",
+        "keywords": [
+            "cakephp",
+            "migrations"
+        ]
+    },
+    {
+        "name": "xety/cake3-upload",
+        "version": "v1.2",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Xety/Cake3-Upload.git",
+            "reference": "47b7c9728ee907dbb4d9659939364fffce2e02f5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Xety/Cake3-Upload/zipball/47b7c9728ee907dbb4d9659939364fffce2e02f5",
+            "reference": "47b7c9728ee907dbb4d9659939364fffce2e02f5",
+            "shasum": ""
+        },
+        "require": {
+            "cakephp/orm": "3.*",
+            "php": ">=5.4.16"
+        },
+        "require-dev": {
+            "cakephp/cakephp": "~3.0",
+            "cakephp/cakephp-codesniffer": "dev-master",
+            "phpunit/phpunit": "*"
+        },
+        "time": "2016-01-21 10:19:44",
+        "type": "cakephp-plugin",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Xety\\Cake3Upload\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Xety",
+                "email": "zoro.fmt@gmail.com",
+                "homepage": "https://github.com/Xety"
+            }
+        ],
+        "description": "Cake3 plugin to upload files.",
+        "homepage": "https://github.com/Xety/Cake3-Upload",
+        "keywords": [
+            "cake3",
+            "cakephp",
+            "file",
+            "orm",
+            "plugin",
+            "upload"
+        ]
+    },
+    {
+        "name": "nikic/php-parser",
+        "version": "v2.0.1",
+        "version_normalized": "2.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nikic/PHP-Parser.git",
+            "reference": "ce5be709d59b32dd8a88c80259028759991a4206"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ce5be709d59b32dd8a88c80259028759991a4206",
+            "reference": "ce5be709d59b32dd8a88c80259028759991a4206",
+            "shasum": ""
+        },
+        "require": {
+            "ext-tokenizer": "*",
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2016-02-28 19:48:28",
+        "bin": [
+            "bin/php-parse"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PhpParser\\": "lib/PhpParser"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Nikita Popov"
+            }
+        ],
+        "description": "A PHP parser written in PHP",
+        "keywords": [
+            "parser",
+            "php"
+        ]
+    },
+    {
+        "name": "symfony/var-dumper",
+        "version": "v3.0.4",
+        "version_normalized": "3.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/var-dumper.git",
+            "reference": "3841ed86527d18ee2c35fe4afb1b2fc60f8fae79"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/3841ed86527d18ee2c35fe4afb1b2fc60f8fae79",
+            "reference": "3841ed86527d18ee2c35fe4afb1b2fc60f8fae79",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9",
+            "symfony/polyfill-mbstring": "~1.0"
+        },
+        "require-dev": {
+            "twig/twig": "~1.20|~2.0"
         },
         "suggest": {
             "ext-symfony_debug": ""
         },
-        "time": "2015-11-18 13:41:01",
+        "time": "2016-03-10 10:34:12",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "2.7-dev"
+                "dev-master": "3.0-dev"
             }
         },
         "installation-source": "dist",
@@ -691,79 +1179,18 @@
         ]
     },
     {
-        "name": "symfony/console",
-        "version": "v2.7.7",
-        "version_normalized": "2.7.7.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/console.git",
-            "reference": "16bb1cb86df43c90931df65f529e7ebd79636750"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/console/zipball/16bb1cb86df43c90931df65f529e7ebd79636750",
-            "reference": "16bb1cb86df43c90931df65f529e7ebd79636750",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.9"
-        },
-        "require-dev": {
-            "psr/log": "~1.0",
-            "symfony/event-dispatcher": "~2.1",
-            "symfony/process": "~2.1"
-        },
-        "suggest": {
-            "psr/log": "For using the console logger",
-            "symfony/event-dispatcher": "",
-            "symfony/process": ""
-        },
-        "time": "2015-11-18 09:54:26",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.7-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\Console\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Console Component",
-        "homepage": "https://symfony.com"
-    },
-    {
         "name": "psy/psysh",
-        "version": "v0.6.1",
-        "version_normalized": "0.6.1.0",
+        "version": "v0.7.2",
+        "version_normalized": "0.7.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/bobthecow/psysh.git",
-            "reference": "0f04df0b23663799a8941fae13cd8e6299bde3ed"
+            "reference": "e64e10b20f8d229cac76399e1f3edddb57a0f280"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/bobthecow/psysh/zipball/0f04df0b23663799a8941fae13cd8e6299bde3ed",
-            "reference": "0f04df0b23663799a8941fae13cd8e6299bde3ed",
+            "url": "https://api.github.com/repos/bobthecow/psysh/zipball/e64e10b20f8d229cac76399e1f3edddb57a0f280",
+            "reference": "e64e10b20f8d229cac76399e1f3edddb57a0f280",
             "shasum": ""
         },
         "require": {
@@ -786,14 +1213,14 @@
             "ext-posix": "If you have PCNTL, you'll want the POSIX extension as well.",
             "ext-readline": "Enables support for arrow-key history navigation, and showing and manipulating command history."
         },
-        "time": "2015-11-12 16:18:56",
+        "time": "2016-03-09 05:03:14",
         "bin": [
             "bin/psysh"
         ],
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-develop": "0.7.x-dev"
+                "dev-develop": "0.8.x-dev"
             }
         },
         "installation-source": "dist",
@@ -826,94 +1253,22 @@
         ]
     },
     {
-        "name": "cakephp/cakephp",
-        "version": "3.1.4",
-        "version_normalized": "3.1.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/cakephp/cakephp.git",
-            "reference": "46abd7761c0528ad6eee5da6dde292abbeade851"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/cakephp/cakephp/zipball/46abd7761c0528ad6eee5da6dde292abbeade851",
-            "reference": "46abd7761c0528ad6eee5da6dde292abbeade851",
-            "shasum": ""
-        },
-        "require": {
-            "aura/intl": "1.1.*",
-            "ext-intl": "*",
-            "ext-mbstring": "*",
-            "ircmaxell/password-compat": "1.0.*",
-            "nesbot/carbon": "1.13.*",
-            "php": ">=5.4.16",
-            "psr/log": "1.0"
-        },
-        "replace": {
-            "cakephp/cache": "self.version",
-            "cakephp/collection": "self.version",
-            "cakephp/core": "self.version",
-            "cakephp/database": "self.version",
-            "cakephp/datasource": "self.version",
-            "cakephp/event": "self.version",
-            "cakephp/filesystem": "self.version",
-            "cakephp/i18n": "self.version",
-            "cakephp/log": "self.version",
-            "cakephp/orm": "self.version",
-            "cakephp/utility": "self.version",
-            "cakephp/validation": "self.version"
-        },
-        "require-dev": {
-            "cakephp/cakephp-codesniffer": "dev-master",
-            "phpunit/phpunit": "*"
-        },
-        "time": "2015-11-06 03:48:56",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Cake\\": "src"
-            },
-            "files": [
-                "src/Core/functions.php",
-                "src/Collection/functions.php",
-                "src/I18n/functions.php",
-                "src/Utility/bootstrap.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "CakePHP Community",
-                "homepage": "https://github.com/cakephp/cakephp/graphs/contributors"
-            }
-        ],
-        "description": "The CakePHP framework",
-        "homepage": "http://cakephp.org",
-        "keywords": [
-            "framework"
-        ]
-    },
-    {
         "name": "cakephp/debug_kit",
-        "version": "3.2.2",
-        "version_normalized": "3.2.2.0",
+        "version": "3.2.7",
+        "version_normalized": "3.2.7.0",
         "source": {
             "type": "git",
             "url": "https://github.com/cakephp/debug_kit.git",
-            "reference": "61e838edf26fc4df1becf59afb77ba10e5400924"
+            "reference": "c0694370a2e87cb705f9766cd69705d3ed09116b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/61e838edf26fc4df1becf59afb77ba10e5400924",
-            "reference": "61e838edf26fc4df1becf59afb77ba10e5400924",
+            "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/c0694370a2e87cb705f9766cd69705d3ed09116b",
+            "reference": "c0694370a2e87cb705f9766cd69705d3ed09116b",
             "shasum": ""
         },
         "require": {
-            "cakephp/cakephp": "3.1.*",
+            "cakephp/cakephp": ">=3.1.0 <4.0",
             "jdorn/sql-formatter": "~1.2"
         },
         "require-dev": {
@@ -923,7 +1278,7 @@
         "suggest": {
             "ext-sqlite": "DebugKit needs to store panel data in a database. SQLite is simple and easy to use."
         },
-        "time": "2015-10-21 19:57:25",
+        "time": "2016-03-06 12:51:13",
         "type": "cakephp-plugin",
         "installation-source": "dist",
         "autoload": {
@@ -957,28 +1312,28 @@
     },
     {
         "name": "cakephp/bake",
-        "version": "1.1.1",
-        "version_normalized": "1.1.1.0",
+        "version": "1.2.3",
+        "version_normalized": "1.2.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/cakephp/bake.git",
-            "reference": "a7d5ed3ef3022264db6d059784b1ad438c8744c3"
+            "reference": "86e44e4a257b5c5e73f2c2bedd91bc0b92aa4f6f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/cakephp/bake/zipball/a7d5ed3ef3022264db6d059784b1ad438c8744c3",
-            "reference": "a7d5ed3ef3022264db6d059784b1ad438c8744c3",
+            "url": "https://api.github.com/repos/cakephp/bake/zipball/86e44e4a257b5c5e73f2c2bedd91bc0b92aa4f6f",
+            "reference": "86e44e4a257b5c5e73f2c2bedd91bc0b92aa4f6f",
             "shasum": ""
         },
         "require": {
-            "cakephp/cakephp": "3.1.*",
-            "php": ">=5.4"
+            "cakephp/cakephp": ">=3.2.0",
+            "php": ">=5.5.9"
         },
         "require-dev": {
             "cakephp/cakephp-codesniffer": "dev-master",
             "phpunit/phpunit": "*"
         },
-        "time": "2015-10-31 17:24:20",
+        "time": "2016-03-11 14:52:08",
         "type": "cakephp-plugin",
         "installation-source": "dist",
         "autoload": {
@@ -1004,172 +1359,18 @@
         ]
     },
     {
-        "name": "symfony/filesystem",
-        "version": "v2.7.7",
-        "version_normalized": "2.7.7.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/filesystem.git",
-            "reference": "8e173509d7fdbbba3cf34d6d072f2073c0210c1d"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/filesystem/zipball/8e173509d7fdbbba3cf34d6d072f2073c0210c1d",
-            "reference": "8e173509d7fdbbba3cf34d6d072f2073c0210c1d",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.9"
-        },
-        "time": "2015-11-18 13:41:01",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.7-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\Filesystem\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Filesystem Component",
-        "homepage": "https://symfony.com"
-    },
-    {
-        "name": "symfony/config",
-        "version": "v2.7.7",
-        "version_normalized": "2.7.7.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/config.git",
-            "reference": "61973327bfb054f6f470de7be033a28b76c1dc20"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/config/zipball/61973327bfb054f6f470de7be033a28b76c1dc20",
-            "reference": "61973327bfb054f6f470de7be033a28b76c1dc20",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.9",
-            "symfony/filesystem": "~2.3"
-        },
-        "time": "2015-11-02 20:20:53",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.7-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\Config\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Config Component",
-        "homepage": "https://symfony.com"
-    },
-    {
-        "name": "symfony/yaml",
-        "version": "v2.7.7",
-        "version_normalized": "2.7.7.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/yaml.git",
-            "reference": "4cfcd7a9fceba662b3c036b7d9a91f6197af046c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/yaml/zipball/4cfcd7a9fceba662b3c036b7d9a91f6197af046c",
-            "reference": "4cfcd7a9fceba662b3c036b7d9a91f6197af046c",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.9"
-        },
-        "time": "2015-11-18 13:41:01",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.7-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\Yaml\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Yaml Component",
-        "homepage": "https://symfony.com"
-    },
-    {
         "name": "league/flysystem",
-        "version": "1.0.15",
-        "version_normalized": "1.0.15.0",
+        "version": "1.0.20",
+        "version_normalized": "1.0.20.0",
         "source": {
             "type": "git",
             "url": "https://github.com/thephpleague/flysystem.git",
-            "reference": "31525caf9e8772683672fefd8a1ca0c0736020f4"
+            "reference": "e87a786e3ae12a25cf78a71bb07b4b384bfaa83a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/31525caf9e8772683672fefd8a1ca0c0736020f4",
-            "reference": "31525caf9e8772683672fefd8a1ca0c0736020f4",
+            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/e87a786e3ae12a25cf78a71bb07b4b384bfaa83a",
+            "reference": "e87a786e3ae12a25cf78a71bb07b4b384bfaa83a",
             "shasum": ""
         },
         "require": {
@@ -1182,8 +1383,7 @@
             "ext-fileinfo": "*",
             "mockery/mockery": "~0.9",
             "phpspec/phpspec": "^2.2",
-            "phpspec/prophecy-phpunit": "~1.0",
-            "phpunit/phpunit": "~4.1"
+            "phpunit/phpunit": "~4.8 || ~5.0"
         },
         "suggest": {
             "ext-fileinfo": "Required for MimeType",
@@ -1199,7 +1399,7 @@
             "league/flysystem-webdav": "Allows you to use WebDAV storage",
             "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter"
         },
-        "time": "2015-09-30 22:26:59",
+        "time": "2016-03-14 21:54:11",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1245,29 +1445,32 @@
     },
     {
         "name": "josegonzalez/cakephp-upload",
-        "version": "3.0.0",
-        "version_normalized": "3.0.0.0",
+        "version": "3.4.0",
+        "version_normalized": "3.4.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/josegonzalez/cakephp-upload.git",
-            "reference": "4b521dff706f0f11ba90c110eaef9fe7aa21e506"
+            "reference": "c2985689318a1b01bc117c2f55fd67ff9dafa2a2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/josegonzalez/cakephp-upload/zipball/4b521dff706f0f11ba90c110eaef9fe7aa21e506",
-            "reference": "4b521dff706f0f11ba90c110eaef9fe7aa21e506",
+            "url": "https://api.github.com/repos/josegonzalez/cakephp-upload/zipball/c2985689318a1b01bc117c2f55fd67ff9dafa2a2",
+            "reference": "c2985689318a1b01bc117c2f55fd67ff9dafa2a2",
             "shasum": ""
         },
         "require": {
-            "cakephp/cakephp": "~3.0",
+            "cakephp/orm": "3.*",
             "league/flysystem": "*",
-            "php": ">=5.4.0"
+            "php": ">=5.5"
         },
         "require-dev": {
+            "cakephp/cakephp": "~3.0",
+            "cakephp/cakephp-codesniffer": "dev-master",
             "league/flysystem-vfs": "*",
-            "phpunit/phpunit": "4.1.*"
+            "phpunit/phpunit": "4.1.*",
+            "satooshi/php-coveralls": "dev-master"
         },
-        "time": "2015-11-27 00:07:23",
+        "time": "2016-03-26 21:42:22",
         "type": "cakephp-plugin",
         "installation-source": "dist",
         "autoload": {
@@ -1287,48 +1490,52 @@
             }
         ],
         "description": "CakePHP plugin to handle file uploading sans ridiculous automagic",
-        "homepage": "http://github.com/josegonzalez/cakephp-upload",
+        "homepage": "https://github.com/josegonzalez/cakephp-upload",
         "keywords": [
             "Behavior",
             "cakephp",
             "files",
+            "orm",
             "upload"
         ]
     },
     {
-        "name": "robmorgan/phinx",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "name": "imagine/imagine",
+        "version": "v0.6.3",
+        "version_normalized": "0.6.3.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/robmorgan/phinx.git",
-            "reference": "06740769d9b02365cfbed104f9a44776a3d14478"
+            "url": "https://github.com/avalanche123/Imagine.git",
+            "reference": "149041d2a1b517107bfe270ca2b1a17aa341715d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/robmorgan/phinx/zipball/06740769d9b02365cfbed104f9a44776a3d14478",
-            "reference": "06740769d9b02365cfbed104f9a44776a3d14478",
+            "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/149041d2a1b517107bfe270ca2b1a17aa341715d",
+            "reference": "149041d2a1b517107bfe270ca2b1a17aa341715d",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.2",
-            "symfony/config": "~2.7",
-            "symfony/console": "~2.7",
-            "symfony/yaml": "~2.7"
+            "php": ">=5.3.2"
         },
         "require-dev": {
-            "phpunit/phpunit": "3.7.*",
-            "squizlabs/php_codesniffer": "dev-phpcs-fixer"
+            "sami/sami": "dev-master"
         },
-        "time": "2015-11-04 21:03:56",
-        "bin": [
-            "bin/phinx"
-        ],
+        "suggest": {
+            "ext-gd": "to use the GD implementation",
+            "ext-gmagick": "to use the Gmagick implementation",
+            "ext-imagick": "to use the Imagick implementation"
+        },
+        "time": "2015-09-19 16:54:05",
         "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-develop": "0.7-dev"
+            }
+        },
         "installation-source": "dist",
         "autoload": {
-            "psr-4": {
-                "Phinx\\": "src/Phinx"
+            "psr-0": {
+                "Imagine": "lib/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -1337,57 +1544,54 @@
         ],
         "authors": [
             {
-                "name": "Rob Morgan",
-                "email": "robbym@gmail.com",
-                "homepage": "http://robmorgan.id.au",
-                "role": "Lead Developer"
-            },
-            {
-                "name": "Woody Gilk",
-                "email": "woody.gilk@gmail.com",
-                "homepage": "http://shadowhand.me",
-                "role": "Developer"
+                "name": "Bulat Shakirzyanov",
+                "email": "mallluhuct@gmail.com",
+                "homepage": "http://avalanche123.com"
             }
         ],
-        "description": "Phinx makes it ridiculously easy to manage the database migrations for your PHP app.",
-        "homepage": "https://phinx.org",
+        "description": "Image processing for PHP 5.3",
+        "homepage": "http://imagine.readthedocs.org/",
         "keywords": [
-            "database",
-            "database migrations",
-            "db",
-            "migrations",
-            "phinx"
+            "drawing",
+            "graphics",
+            "image manipulation",
+            "image processing"
         ]
     },
     {
-        "name": "xety/cake3-upload",
-        "version": "v1.1",
-        "version_normalized": "1.1.0.0",
+        "name": "davidyell/proffer",
+        "version": "0.6.3",
+        "version_normalized": "0.6.3.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/Xety/Cake3-Upload.git",
-            "reference": "1958f894d622341b5fce6f76a3c0f4870ae361e8"
+            "url": "https://github.com/davidyell/CakePHP3-Proffer.git",
+            "reference": "9e39c95d454e6d8730189776d4b9a1fb44f78fe9"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Xety/Cake3-Upload/zipball/1958f894d622341b5fce6f76a3c0f4870ae361e8",
-            "reference": "1958f894d622341b5fce6f76a3c0f4870ae361e8",
+            "url": "https://api.github.com/repos/davidyell/CakePHP3-Proffer/zipball/9e39c95d454e6d8730189776d4b9a1fb44f78fe9",
+            "reference": "9e39c95d454e6d8730189776d4b9a1fb44f78fe9",
             "shasum": ""
         },
         "require": {
-            "cakephp/cakephp": "~3.0",
+            "cakephp/orm": "3.*",
+            "imagine/imagine": "^0.6",
             "php": ">=5.4.16"
         },
         "require-dev": {
-            "cakephp/cakephp-codesniffer": "dev-master",
+            "cakephp/cakephp": "~3.0",
+            "cakephp/cakephp-codesniffer": "^2.0",
             "phpunit/phpunit": "*"
         },
-        "time": "2015-09-14 09:31:11",
+        "time": "2016-03-03 12:38:33",
         "type": "cakephp-plugin",
+        "extra": {
+            "installer-name": "Proffer"
+        },
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Xety\\Cake3Upload\\": "src"
+                "Proffer\\": "src"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -1396,18 +1600,18 @@
         ],
         "authors": [
             {
-                "name": "Xety",
-                "email": "zoro.fmt@gmail.com",
-                "homepage": "https://github.com/Xety"
+                "name": "David Yell",
+                "email": "neon1024@gmail.com"
             }
         ],
-        "description": "Cake3 plugin to upload files.",
-        "homepage": "https://github.com/Xety/Cake3-Upload",
+        "description": "An upload plugin for CakePHP 3",
+        "homepage": "https://github.com/davidyell/CakePHP3-Proffer",
         "keywords": [
-            "cake3",
             "cakephp",
+            "cakephp3",
             "file",
-            "plugin",
+            "image",
+            "orm",
             "upload"
         ]
     }

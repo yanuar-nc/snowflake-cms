@@ -53,8 +53,8 @@ class BakeView extends View
             '?>' => "CakePHPBakeCloseTag>"
         ],
         'replacements' => [
-            '/\n[ \t]+<%- /' => "\n<% ",
-            '/-%>[ \t]+\n/' => "%>\n",
+            '/\n[ \t]+<%-( |$)/' => "\n<% ",
+            '/-%>/' => "?>",
             '/<%=(.*)\%>\n(.)/' => "<%=$1%>\n\n$2",
             '<%=' => '<?=',
             '<%' => '<?php',
@@ -124,11 +124,18 @@ class BakeView extends View
     public function render($view = null, $layout = null)
     {
         $viewFileName = $this->_getViewFileName($view);
+        $templateEventName = str_replace(
+            ['.ctp', DS],
+            ['', '.'],
+            explode('Template' . DS . 'Bake' . DS, $viewFileName)[1]
+        );
 
         $this->_currentType = static::TYPE_VIEW;
         $this->dispatchEvent('View.beforeRender', [$viewFileName]);
+        $this->dispatchEvent('View.beforeRender.' . $templateEventName, [$viewFileName]);
         $this->Blocks->set('content', $this->_render($viewFileName));
         $this->dispatchEvent('View.afterRender', [$viewFileName]);
+        $this->dispatchEvent('View.afterRender.' . $templateEventName, [$viewFileName]);
 
         if ($layout === null) {
             $layout = $this->layout;
@@ -156,7 +163,7 @@ class BakeView extends View
      */
     public function dispatchEvent($name, $data = null, $subject = null)
     {
-        $name = str_replace('View.', 'Bake.', $name);
+        $name = preg_replace('/^View\./', 'Bake.', $name);
         return parent::dispatchEvent($name, $data, $subject);
     }
 

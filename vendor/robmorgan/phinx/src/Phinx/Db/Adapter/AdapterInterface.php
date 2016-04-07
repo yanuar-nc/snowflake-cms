@@ -67,7 +67,7 @@ interface AdapterInterface
     const PHINX_TYPE_LINESTRING     = 'linestring';
     const PHINX_TYPE_POLYGON        = 'polygon';
 
-	// only for mysql so far
+    // only for mysql so far
     const PHINX_TYPE_ENUM           = 'enum';
     const PHINX_TYPE_SET            = 'set';
 
@@ -233,13 +233,13 @@ interface AdapterInterface
     public function fetchAll($sql);
 
     /**
-     * Inserts data into the table
+     * Inserts data into a table.
      *
      * @param Table $table where to insert data
-     * @param array $columns column names
-     * @param $data
+     * @param array $row
+     * @return void
      */
-    public function insert(Table $table, $columns, $data);
+    public function insert(Table $table, $row);
 
     /**
      * Quotes a table name for use in a query.
@@ -353,6 +353,15 @@ interface AdapterInterface
      * @return boolean
      */
     public function hasIndex($tableName, $columns);
+
+    /**
+     * Checks to see if an index specified by name exists.
+     *
+     * @param string $tableName Table Name
+     * @param string $indexName
+     * @return boolean
+     */
+    public function hasIndexByName($tableName, $indexName);
 
     /**
      * Adds the specified index to a database table.

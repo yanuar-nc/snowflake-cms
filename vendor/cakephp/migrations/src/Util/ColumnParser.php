@@ -96,7 +96,7 @@ class ColumnParser
             }
 
             $indexUnique = false;
-            if ($indexType == 'unique') {
+            if ($indexType === 'unique') {
                 $indexUnique = true;
             }
 
@@ -153,7 +153,6 @@ class ColumnParser
     {
         $collection = new Collection($arguments);
         return $collection->filter(function ($value, $field) {
-            $value;
             return preg_match($this->regexpParseColumn, $field);
         })->toArray();
     }
@@ -191,15 +190,14 @@ class ColumnParser
         $collection = new Collection($reflector->getConstants());
 
         $validTypes = $collection->filter(function ($value, $constant) {
-            $value;
             return substr($constant, 0, strlen('PHINX_TYPE_')) === 'PHINX_TYPE_';
         })->toArray();
 
         $fieldType = $type;
         if ($type === null || !in_array($type, $validTypes)) {
-            if ($type == 'primary') {
+            if ($type === 'primary') {
                 $fieldType = 'integer';
-            } elseif ($field == 'id') {
+            } elseif ($field === 'id') {
                 $fieldType = 'integer';
             } elseif (in_array($field, ['created', 'modified', 'updated'])) {
                 $fieldType = 'datetime';
@@ -220,11 +218,11 @@ class ColumnParser
     public function getLength($type)
     {
         $length = null;
-        if ($type == 'string') {
+        if ($type === 'string') {
             $length = 255;
-        } elseif ($type == 'integer') {
+        } elseif ($type === 'integer') {
             $length = 11;
-        } elseif ($type == 'biginteger') {
+        } elseif ($type === 'biginteger') {
             $length = 20;
         }
 
@@ -244,7 +242,7 @@ class ColumnParser
     {
         if (empty($indexName)) {
             $indexName = strtoupper('BY_' . $field);
-            if ($indexType == 'primary') {
+            if ($indexType === 'primary') {
                 $indexName = 'PRIMARY';
             } elseif ($indexUnique) {
                 $indexName = strtoupper('UNIQUE_' . $field);

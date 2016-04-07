@@ -12,6 +12,7 @@
 namespace Migrations;
 
 use Cake\Database\Connection;
+use PDO;
 use Phinx\Db\Adapter\AdapterInterface;
 use Phinx\Db\Table;
 use Phinx\Db\Table\Column;
@@ -52,6 +53,10 @@ class CakeAdapter implements AdapterInterface
         $this->adapter = $adapter;
         $this->connection = $connection;
         $pdo = $adapter->getConnection();
+
+        if ($pdo->getAttribute(PDO::ATTR_ERRMODE) !== PDO::ERRMODE_EXCEPTION) {
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
         $connection->driver()->connection($pdo);
     }
 
@@ -344,15 +349,15 @@ class CakeAdapter implements AdapterInterface
     }
 
     /**
-     * Inserts data into the table
+     * Inserts data into a table.
      *
      * @param Table $table where to insert data
-     * @param array $columns column names
-     * @param $data
+     * @param array $row
+     * @return void
      */
-    public function insert(Table $table, $columns, $data)
+    public function insert(Table $table, $row)
     {
-        return $this->adapter->insert($table, $columns, $data);
+        $this->adapter->insert($table, $row);
     }
 
     /**
@@ -508,6 +513,18 @@ class CakeAdapter implements AdapterInterface
     }
 
     /**
+     * Checks to see if an index specified by name exists.
+     *
+     * @param string $tableName Table Name
+     * @param string $indexName
+     * @return bool
+     */
+    public function hasIndexByName($tableName, $indexName)
+    {
+        return $this->adapter->hasIndexByName($tableName, $indexName);
+    }
+
+    /**
      * Adds the specified index to a database table.
      *
      * @param Table $table Table
@@ -546,9 +563,9 @@ class CakeAdapter implements AdapterInterface
     /**
      * Checks to see if a foreign key exists.
      *
-     * @param string   $tableName
-     * @param string[] $columns    Column(s)
-     * @param string   $constraint Constraint name
+     * @param string $tableName
+     * @param string[] $columns Column(s)
+     * @param string|null $constraint Constraint name
      * @return bool
      */
     public function hasForeignKey($tableName, $columns, $constraint = null)

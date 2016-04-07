@@ -22,6 +22,15 @@ use Cake\TestSuite\Fixture\TestFixture;
 class PanelsFixture extends TestFixture
 {
     /**
+     * table property
+     *
+     * This is necessary to prevent userland inflections from causing issues.
+     *
+     * @var string
+     */
+    public $table = 'panels';
+
+    /**
      * fields property
      *
      * @var array
@@ -33,7 +42,7 @@ class PanelsFixture extends TestFixture
         'title' => ['type' => 'string'],
         'element' => ['type' => 'string'],
         'summary' => ['type' => 'string'],
-        'content' => ['type' => 'text'],
+        'content' => ['type' => 'binary'],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id']],
             'unique_panel' => ['type' => 'unique', 'columns' => ['request_id', 'panel']],

@@ -9,13 +9,13 @@ Using `Composer <http://getcomposer.org/>`__
 `View on
 Packagist <https://packagist.org/packages/josegonzalez/cakephp-upload>`__,
 and copy the json snippet for the latest version into your project's
-``composer.json``. Eg, v. 3.0.0 would look like this:
+``composer.json``.
 
 .. code:: json
 
     {
         "require": {
-            "josegonzalez/cakephp-upload": "3.0.0"
+            "josegonzalez/cakephp-upload": "~3.0"
         }
     }
 
@@ -33,7 +33,7 @@ You need to enable the plugin your ``config/bootstrap.php`` file:
 .. code:: php
 
     <?php
-    Plugin::load('Josegonzale/Upload');
+    Plugin::load('Josegonzalez/Upload');
 
 If you are already using ``Plugin::loadAll();``, then this is not
 necessary.

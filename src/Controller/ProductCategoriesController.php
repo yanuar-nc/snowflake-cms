@@ -63,13 +63,13 @@ class ProductCategoriesController extends AppController
      */
     public function add()
     {
-        $productCategory = $this->ProductCategories->newEntity();
+        $data = $this->ProductCategories->newEntity();
         if ($this->request->is('post')) {
 
             $this->request->data[ 'row_status' ] = 1;
-            $productCategory = $this->ProductCategories->patchEntity($productCategory, $this->request->data);
-
-            if ($this->ProductCategories->save($productCategory)) {
+            $data = $this->ProductCategories->patchEntity($data, $this->request->data);
+            
+            if ($this->ProductCategories->save($data)) {
                 $this->Flash->success(__('The product category has been saved.'));
                 return $this->redirect(['action' => 'index']);
             } else {
@@ -77,9 +77,9 @@ class ProductCategoriesController extends AppController
             }
 
         }
-        $parentProductCategories = $this->ProductCategories->ParentProductCategories->find('list', ['limit' => 200]);
-        $this->set(compact('productCategory', 'parentProductCategories'));
-        $this->set('_serialize', ['productCategory']);
+        $parentProductCategories = $this->ProductCategories->ParentProductCategories->find('treeList', ['limit' => 200, 'spacer' => ' --- ']);
+        $this->set(compact('data', 'parentProductCategories'));
+        $this->set('_serialize', ['data']);
     }
 
     /**
@@ -91,12 +91,12 @@ class ProductCategoriesController extends AppController
      */
     public function edit($id = null)
     {
-        $productCategory = $this->ProductCategories->get($id, [
+        $data = $this->ProductCategories->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $productCategory = $this->ProductCategories->patchEntity($productCategory, $this->request->data);
-            if ($this->ProductCategories->save($productCategory)) {
+            $data = $this->ProductCategories->patchEntity($data, $this->request->data);
+            if ($this->ProductCategories->save($data)) {
                 $this->Flash->success(__('The product category has been saved.'));
                 return $this->redirect(['action' => 'index']);
             } else {
@@ -104,8 +104,8 @@ class ProductCategoriesController extends AppController
             }
         }
         $parentProductCategories = $this->ProductCategories->ParentProductCategories->find('list', ['limit' => 200]);
-        $this->set(compact('productCategory', 'parentProductCategories'));
-        $this->set('_serialize', ['productCategory']);
+        $this->set(compact('data', 'parentProductCategories'));
+        $this->set('_serialize', ['data']);
     }
 
     /**

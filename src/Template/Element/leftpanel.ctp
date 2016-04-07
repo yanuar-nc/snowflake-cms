@@ -64,6 +64,22 @@
                     ]
                 ); 
             ?>
+        </li>        
+
+        <li <?php echo bootstrap_nav_active( $this->request->controller, 'Products' ); ?>>
+            <?php 
+                echo $this->Html->link(
+                    '<i class="fa fa-user"></i>&nbsp;<span>' . __( 'Products' ) . '</span>',
+                    [
+                        'controller' => 'Products',
+                        'action' => 'index'
+                    ],
+                    [
+                        'escape' => false,
+                        'class' => ''
+                    ]
+                ); 
+            ?>
         </li>                         
 
     </ul>

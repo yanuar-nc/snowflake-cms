@@ -14,7 +14,7 @@ passed in under each field in your behavior configuration.
     - Default: (string)
       ``Josegonzalez\Upload\File\Writer\DefaultWriter``
 
--  ``transformer: Returns a TransformerInterface class name.
+-  ``transformer``: Returns a TransformerInterface class name. Can also be a PHP `callable`.
 
     - Default: (string)
       ``Josegonzalez\Upload\File\Transformer\DefaultTransformer``
@@ -43,11 +43,6 @@ passed in under each field in your behavior configuration.
       - ``fields.type``: (default ``type``) Field to use for storing the filetype
       - ``fields.size``: (default ``size``) Field to use for storing the filesize
 
--  ``rootDir``: Root directory for moving images. Auto-prepended to
-   ``path`` and ``thumbnailPath`` where necessary
-
-   -  Default (string) ``ROOT . DS . APP_DIR . DS``
-
 - ``filesystem``: An array of configuration info for configuring the writer
 
     If using the DefaultWriter, the following options are available:
@@ -66,3 +61,7 @@ passed in under each field in your behavior configuration.
       -  ``array $settings``: UploadBehavior settings for the current field
 
    -  Return: (string) the new name for the file
+
+-  ``keepFilesOnDelete``: Keep *all* files when deleting a record.
+
+   -  Default: (boolean) ``true``

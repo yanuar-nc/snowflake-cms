@@ -35,7 +35,7 @@ use Serializable;
 use SimpleXmlElement;
 
 /**
- * CakePHP email class.
+ * CakePHP Email class.
  *
  * This class is used for sending Internet Message Format based
  * on the standard outlined in http://www.rfc-editor.org/rfc/rfc2822.txt
@@ -46,7 +46,6 @@ use SimpleXmlElement;
  * Email::config() can be used to add or read a configuration profile for Email instances.
  * Once made configuration profiles can be used to re-use across various email messages your
  * application sends.
- *
  */
 class Email implements JsonSerializable, Serializable
 {
@@ -954,7 +953,7 @@ class Email implements JsonSerializable, Serializable
      * When setting the transport you can either use the name
      * of a configured transport or supply a constructed transport.
      *
-     * @param string|AbstractTransport|null $name Either the name of a configured
+     * @param string|\Cake\Mailer\AbstractTransport|null $name Either the name of a configured
      *   transport, or a transport instance.
      * @return \Cake\Mailer\AbstractTransport|$this
      * @throws \LogicException When the chosen transport lacks a send method.
@@ -1013,7 +1012,7 @@ class Email implements JsonSerializable, Serializable
             $className = App::className($config['className'], 'Network/Email', 'Transport');
             trigger_error(
                 'Transports in "Network/Email" are deprecated, use "Mailer/Transport" instead.',
-                E_USER_WARNING
+                E_USER_DEPRECATED
             );
         }
 
@@ -1200,9 +1199,9 @@ class Email implements JsonSerializable, Serializable
      *
      * @param string|array $key The configuration name to read/write. Or
      *   an array of multiple transports to set.
-     * @param array|AbstractTransport|null $config Either an array of configuration
+     * @param array|\Cake\Mailer\AbstractTransport|null $config Either an array of configuration
      *   data, or a transport instance.
-     * @return mixed Either null when setting or an array of data when reading.
+     * @return array|null Either null when setting or an array of data when reading.
      * @throws \BadMethodCallException When modifying an existing configuration.
      */
     public static function configTransport($key, $config = null)
@@ -1214,7 +1213,7 @@ class Email implements JsonSerializable, Serializable
             foreach ($key as $name => $settings) {
                 static::configTransport($name, $settings);
             }
-            return;
+            return null;
         }
         if (isset(static::$_transportConfig[$key])) {
             throw new BadMethodCallException(sprintf('Cannot modify an existing config "%s"', $key));
@@ -1337,9 +1336,9 @@ class Email implements JsonSerializable, Serializable
     /**
      * Static method to fast create an instance of \Cake\Mailer\Email
      *
-     * @param string|array $to Address to send (see Cake\Mailer\Email::to()). If null, will try to use 'to' from transport config
-     * @param string $subject String of subject or null to use 'subject' from transport config
-     * @param string|array $message String with message or array with variables to be used in render
+     * @param string|array|null $to Address to send (see Cake\Mailer\Email::to()). If null, will try to use 'to' from transport config
+     * @param string|null $subject String of subject or null to use 'subject' from transport config
+     * @param string|array|null $message String with message or array with variables to be used in render
      * @param string|array $transportConfig String to use config from EmailConfig or array with configs
      * @param bool $send Send the email or just return the instance pre-configured
      * @return \Cake\Mailer\Email Instance of Cake\Mailer\Email
@@ -1840,8 +1839,8 @@ class Email implements JsonSerializable, Serializable
 
         foreach ($types as $type) {
             $View->hasRendered = false;
-            $View->templatePath('Email/' . $type);
-            $View->layoutPath('Email/' . $type);
+            $View->templatePath('Email' . DIRECTORY_SEPARATOR . $type);
+            $View->layoutPath('Email' . DIRECTORY_SEPARATOR . $type);
 
             $render = $View->render();
             $render = str_replace(["\r\n", "\r"], "\n", $render);

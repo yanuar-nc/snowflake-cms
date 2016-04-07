@@ -12,6 +12,7 @@
         
         $this->Form->templates($form_templates['longForm']);            
         
+        echo $this->Form->input( 'display_name' );
         echo $this->Form->input( 'username' );
         echo $this->Form->input( 'email' );
         echo $this->Form->input( 'password' );

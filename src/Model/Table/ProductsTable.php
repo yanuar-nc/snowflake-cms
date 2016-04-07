@@ -31,6 +31,40 @@ class ProductsTable extends Table
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
+        
+        // $this->addBehavior('Josegonzalez/Upload.Upload', [
+        //     'picture' => [
+        //         'fields' => [
+        //             'dir' => 'picture_dir'
+        //         ],
+        //         'thumbnailSizes' => array(
+        //             'medium' => '320x320',
+        //             'zoom' => '512x512',
+        //             'thumb' => '100x100'
+        //         )
+        //     ],
+        // ]);
+        
+        $this->addBehavior('Proffer.Proffer', [
+            'picture' => [    // The name of your upload field
+                'root' => WWW_ROOT . 'files', // Customise the root upload folder here, or omit to use the default
+                'dir' => 'picture_dir',   // The name of the field to store the folder
+                'thumbnailSizes' => [ // Declare your thumbnails
+                    'square' => [   // Define the prefix of your thumbnail
+                        'w' => 200, // Width
+                        'h' => 200, // Height
+                        'crop' => true,  // Crop will crop the image as well as resize it
+                        'jpeg_quality'  => 100,
+                        'png_compression_level' => 9
+                    ],
+                    'portrait' => [     // Define a second thumbnail
+                        'w' => 100,
+                        'h' => 300
+                    ],
+                ],
+                'thumbnailMethod' => 'php'  // Options are Imagick, Gd or Gmagick
+            ]
+        ]);
 
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
@@ -79,8 +113,7 @@ class ProductsTable extends Table
             ->notEmpty('price');
 
         $validator
-            ->requirePresence('picture_dir', 'create')
-            ->notEmpty('picture_dir');
+            ->allowEmpty('picture_dir');
 
         $validator
             ->requirePresence('picture', 'create')

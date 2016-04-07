@@ -14,8 +14,9 @@
  */
 namespace Cake\Validation;
 
+use Cake\I18n\Time;
 use Cake\Utility\Text;
-use DateTime;
+use DateTimeInterface;
 use LogicException;
 use NumberFormatter;
 use RuntimeException;
@@ -61,7 +62,7 @@ class Validation
      * @param string|array $check Value to check.
      * @return bool Success.
      * @deprecated 3.0.2 Use Validation::notBlank() instead.
-     * @see Validation::notBlank()
+     * @see \Cake\Validation\Validation::notBlank()
      */
     public static function notEmpty($check)
     {
@@ -130,9 +131,6 @@ class Validation
      * Returns true if field is left blank -OR- only whitespace characters are present in its value
      * Whitespace characters include Space, Tab, Carriage Return, Newline
      *
-     * $check can be passed as an array:
-     * ['check' => 'valueToCheck'];
-     *
      * @param string|array $check Value to check
      * @return bool Success
      * @deprecated 3.0.2
@@ -154,7 +152,7 @@ class Validation
      * @param bool $deep set to true this will check the Luhn algorithm of the credit card.
      * @param string|null $regex A custom regex can also be passed, this will be used instead of the defined regex values
      * @return bool Success
-     * @see Validation::luhn()
+     * @see \Cake\Validation\Validation::luhn()
      */
     public static function cc($check, $type = 'fast', $deep = false, $regex = null)
     {
@@ -169,7 +167,7 @@ class Validation
 
         if ($regex !== null) {
             if (static::_check($check, $regex)) {
-                return !$deep || static::luhn($check, $deep);
+                return !$deep || static::luhn($check);
             }
         }
         $cards = [
@@ -196,7 +194,7 @@ class Validation
                 $regex = $cards['all'][strtolower($value)];
 
                 if (static::_check($check, $regex)) {
-                    return static::luhn($check, $deep);
+                    return static::luhn($check);
                 }
             }
         } elseif ($type === 'all') {
@@ -204,14 +202,14 @@ class Validation
                 $regex = $value;
 
                 if (static::_check($check, $regex)) {
-                    return static::luhn($check, $deep);
+                    return static::luhn($check);
                 }
             }
         } else {
             $regex = $cards['fast'];
 
             if (static::_check($check, $regex)) {
-                return static::luhn($check, $deep);
+                return static::luhn($check);
             }
         }
         return false;
@@ -350,7 +348,7 @@ class Validation
      * - `ym` 2006/12 or 06/12 separators can be a space, period, dash, forward slash
      * - `y` 2006 just the year without any separators
      *
-     * @param string|\DateTime $check a valid date string/object
+     * @param string|\DateTimeInterface $check a valid date string/object
      * @param string|array $format Use a string or an array of the keys above.
      *    Arrays should be passed as ['dmy', 'mdy', etc]
      * @param string|null $regex If a custom regular expression is used this is the only validation that will occur.
@@ -358,7 +356,7 @@ class Validation
      */
     public static function date($check, $format = 'ymd', $regex = null)
     {
-        if ($check instanceof DateTime) {
+        if ($check instanceof DateTimeInterface) {
             return true;
         }
 
@@ -414,16 +412,16 @@ class Validation
      *
      * All values matching the "date" core validation rule, and the "time" one will be valid
      *
-     * @param string|\DateTime $check Value to check
-     * @param string|array $dateFormat Format of the date part. See Validation::date for more information.
+     * @param string|\DateTimeInterface $check Value to check
+     * @param string|array $dateFormat Format of the date part. See Validation::date() for more information.
      * @param string|null $regex Regex for the date part. If a custom regular expression is used this is the only validation that will occur.
      * @return bool True if the value is valid, false otherwise
-     * @see Validation::date
-     * @see Validation::time
+     * @see \Cake\Validation\Validation::date()
+     * @see \Cake\Validation\Validation::time()
      */
     public static function datetime($check, $dateFormat = 'ymd', $regex = null)
     {
-        if ($check instanceof DateTime) {
+        if ($check instanceof DateTimeInterface) {
             return true;
         }
         $valid = false;
@@ -445,18 +443,45 @@ class Validation
      * Validates time as 24hr (HH:MM) or am/pm ([H]H:MM[a|p]m)
      * Does not allow/validate seconds.
      *
-     * @param string|\DateTime $check a valid time string/object
+     * @param string|\DateTimeInterface $check a valid time string/object
      * @return bool Success
      */
     public static function time($check)
     {
-        if ($check instanceof DateTime) {
+        if ($check instanceof DateTimeInterface) {
             return true;
         }
         if (is_array($check)) {
             $check = static::_getDateString($check);
         }
         return static::_check($check, '%^((0?[1-9]|1[012])(:[0-5]\d){0,2} ?([AP]M|[ap]m))$|^([01]\d|2[0-3])(:[0-5]\d){0,2}$%');
+    }
+
+    /**
+     * Date and/or time string validation.
+     * Uses `I18n::Time` to parse the date. This means parsing is locale dependent.
+     *
+     * @param string|\DateTime $check a date string or object (will always pass)
+     * @param string $type Parser type, one out of 'date', 'time', and 'datetime'
+     * @param string|int|null $format any format accepted by IntlDateFormatter
+     * @return bool Success
+     * @throws \InvalidArgumentException when unsupported $type given
+     * @see \Cake\I18N\Time::parseDate(), \Cake\I18N\Time::parseTime(), \Cake\I18N\Time::parseDateTime()
+     */
+    public static function localizedTime($check, $type = 'datetime', $format = null)
+    {
+        if ($check instanceof DateTimeInterface) {
+            return true;
+        }
+        static $methods = [
+            'date' => 'parseDate',
+            'time' => 'parseTime',
+            'datetime' => 'parseDateTime',
+        ];
+        if (empty($methods[$type])) {
+            throw new \InvalidArgumentException('Unsupported parser type given.');
+        }
+        return (Time::{$methods[$type]}($check, $format) !== null);
     }
 
     /**
@@ -481,7 +506,7 @@ class Validation
      * - 1..N => Exactly that many number of decimal places. The '.' is required.
      *
      * @param float $check The value the test for decimal.
-     * @param int $places Decimal places.
+     * @param int|null $places Decimal places.
      * @param string|null $regex If a custom regular expression is used, this is the only validation that will occur.
      * @return bool Success
      */
@@ -529,7 +554,7 @@ class Validation
      *
      * @param string $check Value to check
      * @param bool $deep Perform a deeper validation (if true), by also checking availability of host
-     * @param string $regex Regex to use (if none it will use built in regex)
+     * @param string|null $regex Regex to use (if none it will use built in regex)
      * @return bool Success
      */
     public static function email($check, $deep = false, $regex = null)
@@ -746,7 +771,7 @@ class Validation
         if ((float)$check != $check) {
             return false;
         }
-        if (isset($lower) && isset($upper)) {
+        if (isset($lower, $upper)) {
             return ($check >= $lower && $check <= $upper);
         }
         return is_finite($check);
@@ -847,11 +872,10 @@ class Validation
      * Luhn algorithm
      *
      * @param string|array $check Value to check.
-     * @param bool $deep If true performs deep check.
      * @return bool Success
      * @see http://en.wikipedia.org/wiki/Luhn_algorithm
      */
-    public static function luhn($check, $deep = false)
+    public static function luhn($check)
     {
         if (!is_scalar($check) || (int)$check === 0) {
             return false;
@@ -1005,7 +1029,7 @@ class Validation
         if (isset($options['types']) && !static::mimeType($file, $options['types'])) {
             return false;
         }
-        return true;
+        return is_uploaded_file($file['tmp_name']);
     }
 
     /**
@@ -1054,7 +1078,7 @@ class Validation
      * @param array $options Options for the validation logic.
      * @return bool
      * @link https://en.wikipedia.org/wiki/Latitude
-     * @see Validation::geoCoordinate()
+     * @see \Cake\Validation\Validation::geoCoordinate()
      */
     public static function latitude($value, array $options = [])
     {
@@ -1069,7 +1093,7 @@ class Validation
      * @param array $options Options for the validation logic.
      * @return bool
      * @link https://en.wikipedia.org/wiki/Longitude
-     * @see Validation::geoCoordinate()
+     * @see \Cake\Validation\Validation::geoCoordinate()
      */
     public static function longitude($value, array $options = [])
     {
