@@ -25,7 +25,7 @@
             <div class="panel panel-signin">
                 <div class="panel-body">
                     <div class="logo text-center">
-                        <?php echo $this->Html->image( 'snowflake-logo.png', [ 'style' => 'max-width: 80%' ] ); ?>
+                        <?php echo $this->Html->image( 'snowflake-blue-logo.png', [ 'style' => 'max-width: 80%' ] ); ?>
                     </div>
                     <br />
                     <h4 class="text-center mb5">Do you have account ?</h4>

@@ -11,6 +11,16 @@ use App\Controller\AppController;
 class ProductsController extends AppController
 {
 
+    public function initialize()
+    {
+        parent::initialize();
+
+        $this->model_name   = 'Products';
+        $this->module_title = 'Products';
+        $this->module_icon  = 'fa fa-qrcode';
+
+    }
+
     /**
      * Index method
      *
@@ -19,7 +29,11 @@ class ProductsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users', 'ProductCategories']
+            'contain' => [
+                'Users' => [ 'fields' => [ 'id', 'username' ] ], 
+                'ProductCategories' => [ 'fields' => [ 'id', 'name' ] ], 
+                'ProductImages' => [ 'fields' => [ 'product_id', 'image' ] ]
+            ]
         ];
         $this->set('products', $this->paginate($this->Products));
         $this->set('_serialize', ['products']);
@@ -48,21 +62,21 @@ class ProductsController extends AppController
      */
     public function add()
     {
-        $product = $this->Products->newEntity();
+        $data = $this->Products->newEntity();
         if ($this->request->is('post')) {
-            $product = $this->Products->patchEntity($product, $this->request->data);
-            // pr( $this->request->data ); die;
-            if ($this->Products->save($product)) {
-                $this->Flash->success(__('The product has been saved.'));
-                return $this->redirect(['action' => 'index']);
+            $this->request->data[ 'user_id' ] = $this->auth_id;
+            $data = $this->Products->newEntity($this->request->data, [ 'associated' => [ 'ProductImages' ] ] );
+            if ($this->Products->save($data, ['validate' => false,
+                        'associated' => ['ProductImages']])) {
+                $this->Flash->success(__('The data has been saved.'));
+                // return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The product could not be saved. Please, try again.'));
+                $this->Flash->error(__('The data could not be saved. Please, try again.'));
             }
         }
-        $users = $this->Products->Users->find('list', ['limit' => 200]);
         $productCategories = $this->Products->ProductCategories->find('list', ['limit' => 200]);
-        $this->set(compact('product', 'users', 'productCategories'));
-        $this->set('_serialize', ['product']);
+        $this->set(compact('data', 'productCategories'));
+        $this->set('_serialize', ['data']);
     }
 
     /**

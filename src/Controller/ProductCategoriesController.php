@@ -23,7 +23,6 @@ class ProductCategoriesController extends AppController
         $this->module_title = 'Product Category';
         $this->module_icon  = 'fa fa-user';
 
-        $this->Auth->allow( 'add', 'logout' );
     }
 
     /**

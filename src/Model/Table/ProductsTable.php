@@ -47,19 +47,19 @@ class ProductsTable extends Table
         
         $this->addBehavior('Proffer.Proffer', [
             'picture' => [    // The name of your upload field
-                'root' => WWW_ROOT . 'files', // Customise the root upload folder here, or omit to use the default
+                'root' => WWW_ROOT . 'img', // Customise the root upload folder here, or omit to use the default
                 'dir' => 'picture_dir',   // The name of the field to store the folder
                 'thumbnailSizes' => [ // Declare your thumbnails
-                    'square' => [   // Define the prefix of your thumbnail
-                        'w' => 200, // Width
-                        'h' => 200, // Height
+                    'thumb' => [   // Define the prefix of your thumbnail
+                        'w' => 100, // Width
+                        'h' => 100, // Height
                         'crop' => true,  // Crop will crop the image as well as resize it
                         'jpeg_quality'  => 100,
                         'png_compression_level' => 9
                     ],
-                    'portrait' => [     // Define a second thumbnail
-                        'w' => 100,
-                        'h' => 300
+                    'normal' => [     // Define a second thumbnail
+                        'w' => 400,
+                        'h' => 400
                     ],
                 ],
                 'thumbnailMethod' => 'php'  // Options are Imagick, Gd or Gmagick
@@ -70,9 +70,14 @@ class ProductsTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
         ]);
+        
         $this->belongsTo('ProductCategories', [
             'foreignKey' => 'product_category_id',
             'joinType' => 'INNER'
+        ]);
+
+        $this->hasMany( 'ProductImages', [
+            'foreignKey' => 'product_id'
         ]);
     }
 
@@ -119,20 +124,20 @@ class ProductsTable extends Table
             ->requirePresence('picture', 'create')
             ->notEmpty('picture');
 
-        $validator
-            ->add('view_count', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('view_count', 'create')
-            ->notEmpty('view_count');
+        // $validator
+        //     ->add('view_count', 'valid', ['rule' => 'numeric'])
+        //     ->requirePresence('view_count', 'create')
+        //     ->notEmpty('view_count');
 
-        $validator
-            ->add('product_photo_count', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('product_photo_count', 'create')
-            ->notEmpty('product_photo_count');
+        // $validator
+        //     ->add('product_photo_count', 'valid', ['rule' => 'numeric'])
+        //     ->requirePresence('product_photo_count', 'create')
+        //     ->notEmpty('product_photo_count');
 
-        $validator
-            ->add('row_status', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('row_status', 'create')
-            ->notEmpty('row_status');
+        // $validator
+        //     ->add('row_status', 'valid', ['rule' => 'numeric'])
+        //     ->requirePresence('row_status', 'create')
+        //     ->notEmpty('row_status');
 
         return $validator;
     }
