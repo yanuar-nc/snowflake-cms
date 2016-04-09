@@ -28,6 +28,6 @@ class ProductImage extends Entity
     protected $_accessible = [
         '*' => true,
         'id' => false,
-        'product_id' => false,
+        // 'product_id' => false,
     ];
 }

@@ -27,12 +27,33 @@ class ProductImagesTable extends Table
 
         $this->table('product_images');
         $this->displayField('title');
-        $this->primaryKey(['id', 'product_id']);
+        $this->primaryKey(['id']);
 
         $this->belongsTo('Products', [
             'foreignKey' => 'product_id',
             'joinType' => 'INNER'
         ]);
+        
+        $this->addBehavior('Proffer.Proffer', [
+            'image' => [    // The name of your upload field
+                'root' => WWW_ROOT . 'img', // Customise the root upload folder here, or omit to use the default
+                'dir' => 'image_dir',   // The name of the field to store the folder
+                'thumbnailSizes' => [ // Declare your thumbnails
+                    'thumb' => [   // Define the prefix of your thumbnail
+                        'w' => 100, // Width
+                        'h' => 100, // Height
+                        'crop' => true,  // Crop will crop the image as well as resize it
+                        'jpeg_quality'  => 100,
+                        'png_compression_level' => 9
+                    ],
+                    'normal' => [     // Define a second thumbnail
+                        'w' => 400,
+                        'h' => 400
+                    ],
+                ],
+                'thumbnailMethod' => 'php'  // Options are Imagick, Gd or Gmagick
+            ]
+        ]);        
     }
 
     /**
@@ -53,9 +74,6 @@ class ProductImagesTable extends Table
         $validator
             ->requirePresence('image', 'create')
             ->notEmpty('image');
-
-        $validator
-            ->allowEmpty('image_dir');
 
         return $validator;
     }

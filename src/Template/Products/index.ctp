@@ -55,7 +55,7 @@
                                     echo $this->Html->link(
                                         __( 'Add Images' ),
                                         [
-                                            'controller' => 'product_images,
+                                            'controller' => 'product_images',
                                             'action' => 'edit',
                                             $id
                                         ]

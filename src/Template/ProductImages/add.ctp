@@ -7,13 +7,15 @@
     </ul>
 </nav>
 <div class="productImages form large-9 medium-8 columns content">
-    <?= $this->Form->create($productImage) ?>
+    <?= $this->Form->create($productImage, [ 'type' => 'file' ]) ?>
     <fieldset>
         <legend><?= __('Add Product Image') ?></legend>
         <?php
+        // pr( $products );
+            echo $this->Form->input('product_id', ['options' => $products]);
             echo $this->Form->input('title');
-            echo $this->Form->input('image');
-            echo $this->Form->input('image_dir');
+            echo $this->Form->input('image', [ 'type' => 'file' ] );
+            // echo $this->Form->input('image_dir');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
