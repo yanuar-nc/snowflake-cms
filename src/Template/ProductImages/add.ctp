@@ -12,7 +12,7 @@
         <legend><?= __('Add Product Image') ?></legend>
         <?php
         // pr( $products );
-            echo $this->Form->input('product_id', ['options' => $products]);
+            echo $this->Form->input('product_id', ['type' => 'hidden']);
             echo $this->Form->input('title');
             echo $this->Form->input('image', [ 'type' => 'file' ] );
             // echo $this->Form->input('image_dir');

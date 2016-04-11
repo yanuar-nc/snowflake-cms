@@ -2,7 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Network\Exception\NotFoundException;
+// use App\Error\AppError;
 /**
  * ProductImages Controller
  *
@@ -39,7 +40,6 @@ class ProductImagesController extends AppController
         $productImage = $this->ProductImages->get($id, [
             'contain' => ['Products']
         ]);
-
         $this->set('productImage', $productImage);
         $this->set('_serialize', ['productImage']);
     }
@@ -49,9 +49,13 @@ class ProductImagesController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add( $id = null )
     {
+
+        $this->Repository->checkId( 'Products', $id );
+
         $productImage = $this->ProductImages->newEntity();
+
         if ($this->request->is('post')) {
             $productImage = $this->ProductImages->patchEntity($productImage, $this->request->data);
             if ($this->ProductImages->save($productImage)) {
@@ -61,8 +65,9 @@ class ProductImagesController extends AppController
                 $this->Flash->error(__('The product image could not be saved. Please, try again.'));
             }
         }
-        $products = $this->ProductImages->Products->find('list', ['limit' => 200]);
-        $this->set(compact('productImage', 'products'));
+        $this->request->data[ 'product_id' ] = $id;
+        // $products = $this->ProductImages->Products->find('list', ['limit' => 200]);
+        $this->set(compact('productImage'));
         $this->set('_serialize', ['productImage']);
     }
 

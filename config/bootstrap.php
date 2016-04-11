@@ -35,8 +35,6 @@ require CORE_PATH . 'config' . DS . 'bootstrap.php';
 
 require 'Custom' . DS . 'config.php';
 
-require ROOT . DS . 'src' . DS . 'Service' . DS . 'Test.php';
-
 // You can remove this if you are confident you have intl installed.
 if (!extension_loaded('intl')) {
     trigger_error('You must enable the intl extension to use CakePHP.', E_USER_ERROR);
@@ -57,6 +55,7 @@ use Cake\Network\Request;
 use Cake\Routing\DispatcherFactory;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
+use App\Service;
 
 /**
  * Read configuration file and inject configuration into various
@@ -92,7 +91,7 @@ if (!Configure::read('debug')) {
  */
 date_default_timezone_set('Asia/jakarta');
 
-/**
+/**F
  * Configure the mbstring extension to use the correct encoding.
  */
 mb_internal_encoding(Configure::read('App.encoding'));

@@ -66,8 +66,7 @@ class ProductsController extends AppController
         if ($this->request->is('post')) {
             $this->request->data[ 'user_id' ] = $this->auth_id;
             $data = $this->Products->newEntity($this->request->data, [ 'associated' => [ 'ProductImages' ] ] );
-            if ($this->Products->save($data, ['validate' => false,
-                        'associated' => ['ProductImages']])) {
+            if ($this->Products->save($data)) {
                 $this->Flash->success(__('The data has been saved.'));
                 // return $this->redirect(['action' => 'index']);
             } else {
@@ -88,12 +87,12 @@ class ProductsController extends AppController
      */
     public function edit($id = null)
     {
-        $product = $this->Products->get($id, [
+        $data = $this->Products->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $product = $this->Products->patchEntity($product, $this->request->data);
-            if ($this->Products->save($product)) {
+            $data = $this->Products->patchEntity($data, $this->request->data);
+            if ($this->Products->save($data)) {
                 $this->Flash->success(__('The product has been saved.'));
                 return $this->redirect(['action' => 'index']);
             } else {
@@ -102,7 +101,7 @@ class ProductsController extends AppController
         }
         $users = $this->Products->Users->find('list', ['limit' => 200]);
         $productCategories = $this->Products->ProductCategories->find('list', ['limit' => 200]);
-        $this->set(compact('product', 'users', 'productCategories'));
+        $this->set(compact('data', 'users', 'productCategories'));
         $this->set('_serialize', ['product']);
     }
 

@@ -17,6 +17,7 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\Core\Configure;
+// use Cake\Network\Exception\NotFoundException;
 
 /**
  * Application Controller
@@ -54,6 +55,7 @@ class AppController extends Controller
     {
         parent::initialize();
 
+        $this->loadComponent('Repository');
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Csrf');
@@ -64,7 +66,7 @@ class AppController extends Controller
                 ]
             ],
             'finder' => 'auth',
-            'authError' => 'Did you really think you are allowed to see that?',
+            // 'authError' => 'Did you really think you are allowed to see that?',
             'loginRedirect' =>  [
                 'controller' => 'Users',
                 'action' => 'index'

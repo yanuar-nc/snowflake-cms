@@ -37,29 +37,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
         <![endif]-->
-        <?php
-        $js = array( 'jquery-1.11.1.min', 
-                     'jquery-migrate-1.2.1.min', 
-                     'jquery-ui-1.10.3.min',
-                     'bootstrap.min',
-                     'modernizr.min',
-                     'pace.min',
-                     'retina.min',
-                     'jquery.cookies',
-                     'ckeditor/ckeditor.js',
-                     'ckeditor/adapters/jquery.js',
-                     'jquery.prettyPhoto'
-                     );
-        echo $this->Html->script( $js );
-        echo $this->fetch( 'script' );
-        // echo $this->Html->script( 'custom' );
-
-        ?>   
-        <style type="text/css">
-        audio{
-            display: none;
-        }
-        </style>     
     </head>
 
     <body>
@@ -101,4 +78,24 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
     </body>
+
+    <?php
+    $js = array( 'jquery-1.11.1.min', 
+                 'jquery-migrate-1.2.1.min', 
+                 'jquery-ui-1.10.3.min',
+                 'bootstrap.min',
+                 'modernizr.min',
+                 'pace.min',
+                 'retina.min',
+                 'jquery.cookies',
+                 'ckeditor/ckeditor.js',
+                 'ckeditor/adapters/jquery.js',
+                 'jquery.prettyPhoto'
+                 );
+    echo $this->Html->script( $js );
+    echo $this->fetch( 'script' );
+    // echo $this->Html->script( 'custom' );
+
+    ?>   
+
 </html>

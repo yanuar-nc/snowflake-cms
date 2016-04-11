@@ -106,10 +106,6 @@ class ProductsTable extends Table
             ->notEmpty('description');
 
         $validator
-            ->requirePresence('product_condition', 'create')
-            ->notEmpty('product_condition');
-
-        $validator
             ->allowEmpty('year');
 
         $validator
@@ -121,8 +117,12 @@ class ProductsTable extends Table
             ->allowEmpty('picture_dir');
 
         $validator
-            ->requirePresence('picture', 'create')
-            ->notEmpty('picture');
+            // ->requirePresence('picture', 'update')
+            ->allowEmpty('picture');
+
+        // // $validator
+        // //     ->requirePresence('picture', 'create')
+        // //     ->notEmpty('picture');
 
         // $validator
         //     ->add('view_count', 'valid', ['rule' => 'numeric'])
