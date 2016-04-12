@@ -53,7 +53,7 @@
         <li <?php echo bootstrap_nav_active( $this->request->controller, 'ProductCategories' ); ?>>
             <?php 
                 echo $this->Html->link(
-                    '<i class="fa fa-user"></i>&nbsp;<span>' . __( 'ProductCategories' ) . '</span>',
+                    '<i class="fa fa-flag"></i>&nbsp;<span>' . __( 'ProductCategories' ) . '</span>',
                     [
                         'controller' => 'ProductCategories',
                         'action' => 'index'
@@ -69,7 +69,7 @@
         <li <?php echo bootstrap_nav_active( $this->request->controller, 'Products' ); ?>>
             <?php 
                 echo $this->Html->link(
-                    '<i class="fa fa-user"></i>&nbsp;<span>' . __( 'Products' ) . '</span>',
+                    '<i class="fa fa-gift"></i>&nbsp;<span>' . __( 'Products' ) . '</span>',
                     [
                         'controller' => 'Products',
                         'action' => 'index'

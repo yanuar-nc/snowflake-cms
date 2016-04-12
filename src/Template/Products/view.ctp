@@ -5,7 +5,8 @@
     $picture        = $picture_dir . '' . $data->picture;
     $thumb          = $picture_dir . 'thumb_' . $data->picture;
 
-    // echo $this->Element( 'Toolbar/form_view' );
+    echo $this->Element( 'Toolbar/form_view' );
+    
 ?>
 
 <div class="table-responsive">
@@ -37,12 +38,15 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <!--
-        <div class="panel-btns">
-            <a href="" class="panel-minimize tooltips" data-toggle="tooltip" title="Minimize Panel"><i class="fa fa-minus"></i></a>
-        </div><!--/ .ppanel-btns -->
         
-        <h4 class="panel-title">Images</h4>
+            <?php 
+            echo $this->Html->link(
+                '<i class="fa fa-plus"></i> &nbsp; ' . __('Add images'),
+                [ 'controller' => 'product_images', 'action' => 'add', $data->id],
+                ['class="btn btn-sm btn-white"', 'escape' => false ]
+            )
+            ?>
+        
         
     </div><!--/ .panel-heading -->    
     <div class="panel-body">
@@ -50,10 +54,10 @@
     foreach( $data->product_images as $pimage ):
 
         $picture_dir    = '/img/productimages/image/' . $pimage->image_dir . '/';
-        $picture        = $picture_dir . '' . $pimage->image;
         $thumb          = $picture_dir . 'thumb_' . $pimage->image;        
+        $url = [ 'controller' => 'product_images', 'action' => 'edit', $pimage->id ];
     ?>
-        <a href="<?= $this->Url->build($picture) ?>" data-rel="prettyPhoto">
+        <a href="<?= $this->Url->build( $url ) ?>">
             <?php echo $this->Html->image( $thumb, array( 'class' => 'img-responsive img-thumbnail', 'alt' => '' ) ); ?>
         </a>
     <?php

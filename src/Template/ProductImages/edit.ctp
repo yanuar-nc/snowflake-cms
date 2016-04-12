@@ -1,27 +1,39 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $productImage->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $productImage->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Product Images'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="productImages form large-9 medium-8 columns content">
-    <?= $this->Form->create($productImage) ?>
-    <fieldset>
-        <legend><?= __('Edit Product Image') ?></legend>
-        <?php
-            echo $this->Form->input('title');
-            echo $this->Form->input('image');
-            echo $this->Form->input('image_dir');
+
+<div class="panel panel-default">
+    
+<?= $this->Element( 'Panel/edit' )?>
+
+    <div class="panel-body">
+        <?php 
+        echo $this->Element( 'Toolbar/form_edit' );
+        
+        // START FORM
+        echo $this->Form->create( $data, [ 'class' => 'form-horizontal', 'type' => 'file' ] );      
+        
+        $this->Form->templates($form_templates['longForm']);     
+
+        echo $this->Form->input('title');
         ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+        <div class="form-group  required" form-type="number">
+            <label class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+            <?php
+            $picture = '/img/productimages/image/' . $data[ 'image_dir' ] . '/' . $data[ 'image' ];
+            $thumb   = 'productimages/image/' . $data[ 'image_dir' ] . '/thumb_' . $data[ 'image' ];
+            ?>
+                <a href="<?= $this->Url->build($picture) ?>" data-rel="prettyPhoto">
+                    <?php echo $this->Html->image( $thumb, array( 'class' => 'img-responsive img-thumbnail', 'alt' => '' ) ); ?>
+                </a>
+            </div>
+        </div>
+        <?php        
+        echo $this->Form->input('image', [ 'type' => 'file' ] );
+
+        echo $this->Form->input('product_id', ['type' => 'hidden']);
+        ?>
+    </div>
+    <div class="panel-footer">
+        <?php echo $this->Form->button( __( 'Submit' ), [ 'type' => 'submit','class' => 'btn btn-primary' ] ); ?>
+    </div><!--/ .panel-footer -->
+        <?= $this->Form->end() ?>
 </div>

@@ -11,7 +11,7 @@
         </a>
     </div><!--/ .btn-group -->
     <?= $this->Html->link(
-            '<i class="fa fa-trash-o"></i> &nbsp; ' . __('Edit'),
+            '<i class="fa fa-pencil"></i> &nbsp; ' . __('Edit'),
             ['action' => 'edit', $data->id],
             ['class="btn btn-sm btn-white"', 'escape' => false ]
         )

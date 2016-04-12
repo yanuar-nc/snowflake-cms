@@ -56,16 +56,17 @@ class ProductImagesController extends AppController
 
         $data = $this->ProductImages->newEntity();
 
+        $this->request->data[ 'product_id' ] = $id;
+
         if ($this->request->is('post')) {
             $data = $this->ProductImages->patchEntity($data, $this->request->data);
             if ($this->ProductImages->save($data)) {
                 $this->Flash->success(__('The product image has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect([ 'controller' => 'products', 'action' => 'view', $id]);
             } else {
                 $this->Flash->error(__('The product image could not be saved. Please, try again.'));
             }
         }
-        $this->request->data[ 'product_id' ] = $id;
         // $products = $this->ProductImages->Products->find('list', ['limit' => 200]);
         $this->set(compact('data'));
         $this->set('_serialize', ['data']);
@@ -80,12 +81,12 @@ class ProductImagesController extends AppController
      */
     public function edit($id = null)
     {
-        $productImage = $this->ProductImages->get($id, [
+        $data = $this->ProductImages->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $productImage = $this->ProductImages->patchEntity($productImage, $this->request->data);
-            if ($this->ProductImages->save($productImage)) {
+            $data = $this->ProductImages->patchEntity($data, $this->request->data);
+            if ($this->ProductImages->save($data)) {
                 $this->Flash->success(__('The product image has been saved.'));
                 return $this->redirect(['action' => 'index']);
             } else {
@@ -93,8 +94,8 @@ class ProductImagesController extends AppController
             }
         }
         $products = $this->ProductImages->Products->find('list', ['limit' => 200]);
-        $this->set(compact('productImage', 'products'));
-        $this->set('_serialize', ['productImage']);
+        $this->set(compact('data', 'products'));
+        $this->set('_serialize', ['data']);
     }
 
     /**
