@@ -49,7 +49,7 @@
                 ); 
             ?>
         </li> 
-        <?php $nav_array_contents = [ 'Products', 'product_categories', 'product_images' ]; ?>
+        <?php $nav_array_contents = [ 'Products', 'ProductCategories', 'ProductImages' ]; ?>
         <li class="<?php echo bootstrap_nav_active( $var_controller, $nav_array_contents, false, 'active' ); ?> parent">
             <a href=""><i class="fa fa-gift"></i> <span><?php echo __( 'Products' ); ?></span></a>
             <ul class="children" <?php echo bootstrap_nav_active( $var_controller, $nav_array_contents, false, 'style="display: block"' ); ?>>
@@ -69,7 +69,7 @@
                         ); 
                     ?>
                 </li>                                            
-                <li <?php echo bootstrap_nav_active( $this->request->controller, 'product_categories' ); ?>>
+                <li <?php echo bootstrap_nav_active( $this->request->controller, 'ProductCategories' ); ?>>
                     <?php 
                         echo $this->Html->link(
                             __( 'Categories' ),
@@ -84,7 +84,7 @@
                         ); 
                     ?>
                 </li> 
-                <li <?php echo bootstrap_nav_active( $this->request->controller, 'product_images' ); ?>>
+                <li <?php echo bootstrap_nav_active( $this->request->controller, 'ProductImages' ); ?>>
                     <?php 
                         echo $this->Html->link(
                             __( 'Images' ),

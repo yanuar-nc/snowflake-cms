@@ -56,18 +56,6 @@
                                     );
                                 ?>
                             </li>
-                            <li>
-                                <?php
-                                    echo $this->Html->link(
-                                        __( BTN_VIEW ),
-                                        [
-                                            'controller' => $var_controller,
-                                            'action' => 'view',
-                                            $id
-                                        ]
-                                    );
-                                ?>
-                            </li>
                             <li class="divider"></li>
                             <li>
                                 <?= $this->Form->postLink(
