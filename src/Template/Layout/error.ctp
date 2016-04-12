@@ -44,24 +44,9 @@ $this->assign('title', $message);
                         "<strong>'{$url}'</strong>"
                     ) ?>
                 </p>
-                <?php if (!empty($error->queryString)) : ?>
-                    <p class="notice">
-                        <strong>SQL Query: </strong>
-                        <?= h($error->queryString) ?>
-                    </p>
-                <?php endif; ?>
-                <?php if (!empty($error->params)) : ?>
-                        <strong>SQL Query Params: </strong>
-                        <?= Debugger::dump($error->params) ?>
-                <?php endif; ?>
-                <?= $this->element('auto_table_warning') ?>
-                <?php
-                    if (extension_loaded('xdebug')):
-                        xdebug_print_function_stack();
-                    endif;
+      
+                <?php // echo $this->fetch('content') ?>
 
-                    $this->end();
-                ?>
                 <form action="search-results.html">
                     <input type="text" class="form-control" placeholder="Search for page" /> <button class="btn btn-primary">Search</button>
                 </form>

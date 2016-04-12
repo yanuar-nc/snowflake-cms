@@ -54,11 +54,11 @@ class ProductImagesController extends AppController
 
         $this->Repository->checkId( 'Products', $id );
 
-        $productImage = $this->ProductImages->newEntity();
+        $data = $this->ProductImages->newEntity();
 
         if ($this->request->is('post')) {
-            $productImage = $this->ProductImages->patchEntity($productImage, $this->request->data);
-            if ($this->ProductImages->save($productImage)) {
+            $data = $this->ProductImages->patchEntity($data, $this->request->data);
+            if ($this->ProductImages->save($data)) {
                 $this->Flash->success(__('The product image has been saved.'));
                 return $this->redirect(['action' => 'index']);
             } else {
@@ -67,8 +67,8 @@ class ProductImagesController extends AppController
         }
         $this->request->data[ 'product_id' ] = $id;
         // $products = $this->ProductImages->Products->find('list', ['limit' => 200]);
-        $this->set(compact('productImage'));
-        $this->set('_serialize', ['productImage']);
+        $this->set(compact('data'));
+        $this->set('_serialize', ['data']);
     }
 
     /**

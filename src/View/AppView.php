@@ -39,5 +39,8 @@ class AppView extends View
         $this->loadHelper( 'Form', [
            'errorClass' => 'shit',
         ] );
+        $this->loadHelper('Url', [
+            'className' => 'Url'
+        ]);        
     }
 }

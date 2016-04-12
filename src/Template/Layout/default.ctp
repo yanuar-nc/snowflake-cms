@@ -90,11 +90,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                  'jquery.cookies',
                  'ckeditor/ckeditor.js',
                  'ckeditor/adapters/jquery.js',
-                 'jquery.prettyPhoto'
+                 'jquery.prettyPhoto',
                  );
     echo $this->Html->script( $js );
     echo $this->fetch( 'script' );
-    // echo $this->Html->script( 'custom' );
+    echo $this->Html->script( 'custom' );
 
     ?>   
 

@@ -49,10 +49,18 @@ class ProductsController extends AppController
     public function view($id = null)
     {
         $product = $this->Products->get($id, [
-            'contain' => ['Users', 'ProductCategories']
+            'contain' => [
+                'Users' => [ 
+                    'fields' => [ 'username', 'display_name', 'id' ], 
+                ],
+                'ProductCategories' => [ 
+                    'fields' => [ 'id', 'name' ]
+                ],
+                'ProductImages'
+            ]
         ]);
-        $this->set('product', $product);
-        $this->set('_serialize', ['product']);
+        $this->set('data', $product);
+        $this->set('_serialize', ['data']);
     }
 
     /**
