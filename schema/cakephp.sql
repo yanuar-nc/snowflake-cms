@@ -62,7 +62,7 @@ CREATE TABLE `product_images` (
   PRIMARY KEY (`id`,`product_id`),
   KEY `fk_product_id` (`product_id`),
   CONSTRAINT `product_images_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +71,7 @@ CREATE TABLE `product_images` (
 
 LOCK TABLES `product_images` WRITE;
 /*!40000 ALTER TABLE `product_images` DISABLE KEYS */;
-INSERT INTO `product_images` VALUES (35,11,'Title','sony-xperia-z5-family-1400.jpg','5716a0a9-ec0e-4ffe-8431-7b57b00245da');
+INSERT INTO `product_images` VALUES (35,11,'Title','sony-xperia-z5.jpg','5716a0a9-ec0e-4ffe-8431-7b57b00245da'),(37,11,'My title','93201484713PM_635_sony_xperia_z3.jpeg','e15b156c-7cc4-4f08-b993-560e5d136435');
 /*!40000 ALTER TABLE `product_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +89,7 @@ CREATE TABLE `products` (
   `name` varchar(140) NOT NULL,
   `product_seo` varchar(150) NOT NULL,
   `description` text NOT NULL,
-  `product_condition` enum('NEW','USED') NOT NULL DEFAULT 'USED',
+  `product_condition` enum('NEW','USED') DEFAULT 'USED',
   `year` varchar(4) DEFAULT NULL,
   `price` int(11) NOT NULL,
   `picture_dir` varchar(255) NOT NULL DEFAULT 'default',
@@ -104,7 +104,7 @@ CREATE TABLE `products` (
   KEY `idx_product_category_id` (`product_category_id`),
   CONSTRAINT `fk_product_category` FOREIGN KEY (`product_category_id`) REFERENCES `product_categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,7 +113,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (11,5,2,'Sony XPERIA z3','sadsa','ddsa','','1231',12313,'e4dff480-de8c-4b94-b865-b2d01bbf0299','z5_premium_chrome_group.png',0,0,'2016-04-07 13:36:55','2016-04-09 13:25:37',0),(12,5,1,'Sedih','sad','sadsdasda','','1908',1200000,'f995504e-4e87-4e54-b5d5-e651ebe96f7c','12342492_1034531416611319_524317774963206763_n.jpg',0,0,'2016-04-07 14:06:28','2016-04-09 13:27:04',0),(13,5,3,'dsfsdf','fa','adsfa sdfaf f ','','1990',1400000,'90cbf514-0c03-44dc-a1d7-e756db3adaf4','518e0f0fd1a85_518e0f0fd3164.jpg',0,0,'2016-04-07 14:30:34','2016-04-07 14:30:34',0);
+INSERT INTO `products` VALUES (11,5,2,'Sony XPERIA z3','sadsa','ddsa','','1231',12313,'e4dff480-de8c-4b94-b865-b2d01bbf0299','z5_premium_chrome_group.png',0,0,'2016-04-07 13:36:55','2016-04-09 13:25:37',0),(12,5,3,'Monopoly On Truth','MonopolyOnTruth','[Music by Isaac Delahaye, Mark Jansen, Simone Simons]\r\n[Lyrics by Mark Jansen, Simone Simons]\r\n\r\nNos docti, pensantes\r\nSed non semper veridici','','2012',1200000,'f995504e-4e87-4e54-b5d5-e651ebe96f7c','djisamsoejazz1.jpg',0,0,'2016-04-07 14:06:28','2016-04-09 14:03:46',0),(13,5,3,'dsfsdf','fa','adsfa sdfaf f ','','1990',1400000,'90cbf514-0c03-44dc-a1d7-e756db3adaf4','518e0f0fd1a85_518e0f0fd3164.jpg',0,0,'2016-04-07 14:30:34','2016-04-07 14:30:34',0);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,4 +157,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-09 13:32:05
+-- Dump completed on 2016-04-12 19:12:46
