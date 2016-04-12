@@ -12,6 +12,14 @@ use Cake\Network\Exception\NotFoundException;
 class ProductImagesController extends AppController
 {
 
+    public function initialize()
+    {
+        parent::initialize();
+
+        $this->model_name   = 'ProductImages';
+        $this->module_title = 'Product Images';
+    }
+
     /**
      * Index method
      *
