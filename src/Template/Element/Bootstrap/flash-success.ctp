@@ -1,11 +1,3 @@
-<?php
-
-	/**
-	 * app/View/Elements/admin/flash-success.ctp
-	 * Created by Falmesino Abdul Hamid(falmesino@gmail.com)
-	 */
-
-?>
 
 <div class="row">
     

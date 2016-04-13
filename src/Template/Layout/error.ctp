@@ -38,19 +38,19 @@ $this->assign('title', $message);
         <section>
             <div class="notfoundpanel">
                 <h1><?= $code ?>!</h1>
-                <h3><?= $message ?>!</h3>
+                <h3><!-- <?= $message ?> --><?= $this->fetch('content') ?></h3>
                 <p><?= sprintf(
                         __d('cake', 'The requested address %s was not found on this server.'),
                         "<strong>'{$url}'</strong>"
                     ) ?>
                 </p>
-      
-                <?php // echo $this->fetch('content') ?>
-
+                <p><?= h( $error ) ?></p>
+                
                 <form action="search-results.html">
                     <input type="text" class="form-control" placeholder="Search for page" /> <button class="btn btn-primary">Search</button>
                 </form>
             </div><!-- notfoundpanel -->
+            <?= $this->fetch('file') ?>
         </section>
     </body>
 

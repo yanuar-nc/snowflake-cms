@@ -1,10 +1,3 @@
-<?php
-
-	/**
-	 * app/View/Elements/admin/flash-error.ctp
-	 * Created by Falmesino Abdul Hamid(falmesino@gmail.com)
-	 */
-?>
 
 <div class="row">
     

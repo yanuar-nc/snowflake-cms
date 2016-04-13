@@ -33,7 +33,7 @@ class ProductCategoriesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['ParentProductCategories']
+            'contain' => ['ParentProductCategories' => [ 'fields' => [ 'id', 'name' ] ] ]
         ];
         $this->set('productCategories', $this->paginate($this->ProductCategories));
         $this->set('_serialize', ['productCategories']);

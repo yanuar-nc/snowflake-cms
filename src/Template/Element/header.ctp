@@ -13,7 +13,7 @@
             
             <div class="pull-right">                
                 <?php
-                echo $this->Form->create( 'Search', array( 'url' => '/' . $auth_role . '/search/index', 'type' => 'get', 'class' => 'form form-search', 'inputDefaults' => array( 'div' => false, 'label' => false ) ) );
+                echo $this->Form->create( 'Search', array( 'url' => '/search/index', 'type' => 'get', 'class' => 'form form-search', 'inputDefaults' => array( 'div' => false, 'label' => false ) ) );
                 echo $this->Form->input( 'keyword', array( 'class' => 'form-control', 'placeholder' => 'Search', 'type' => 'search', 'label' => false ) );
 
                 echo $this->Form->end();
@@ -27,7 +27,7 @@
                     <div class="dropdown-menu pull-right">
                         <h5>Notification</h5>
                         <div class="dropdown-footer text-center">
-                            <?= $this->Html->link( 'Lihat semua pemberitahuan', array( 'controller' => 'notifications', 'action' => 'index' ), array( 'class' => 'link' ) ); ?>
+                            <?= $this->Html->link( __( 'See more' ), array( 'controller' => 'notifications', 'action' => 'index' ), array( 'class' => 'link' ) ); ?>
                         </div>
                     </div><!-- dropdown-menu -->
                 </div>

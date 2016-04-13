@@ -144,5 +144,10 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+
+        if ( $this->name = 'Error' )
+        {
+            // pr('ads'); exit;
+        }
     }
 }
